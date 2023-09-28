@@ -4,6 +4,8 @@
 
     <?= $this->include("templates/navigation") ?>
 
+    <?= var_dump($travels) ?>
+
     <p>TRAVEL LIST</p>
 
 <?= $this->endSection() ?>
