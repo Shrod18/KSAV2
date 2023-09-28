@@ -2,10 +2,10 @@
 
 namespace App\Controllers;
 
-class LoginController extends BaseController
+class HomeController extends BaseController
 {
     public function view(): string
     {
-        return view("pages/login");
+        return view("pages/home");
     }
 }
