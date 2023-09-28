@@ -1,3 +1,7 @@
+<?= $this->extend("_pattern") ?>
+
+<?= $this->section("main") ?>
+
 <div class="slds-box slds-p-around_xxx-small"
     style="width: 27%; background-color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
     <div class="slds-grid slds-grid_vertical">
@@ -33,3 +37,5 @@
         </form>
     </div>
 </div>
+
+<?= $this->endSection() ?>
