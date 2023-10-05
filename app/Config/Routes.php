@@ -25,11 +25,11 @@ $routes->group("/travel", function (RouteCollection $routes) {
         $routes->get("/(:num)/delete", "ModelTravelController::delete/$1", ["as" => "modelTravelDelete"]);
     });
 
-    $routes->get("/", "TravelController::viewList", ["as" => "modelTravelViewList"]);
-    $routes->get("/add", "TravelController::viewAdd", ["as" => "modelTravelViewAdd"]);
-    $routes->get("/(:num)", "TravelController::viewDetail/$1", ["as" => "modelTravelViewDetail"]);
-    $routes->get("/(:num)/edit", "TravelController::viewEdit/$1", ["as" => "modelTravelViewEdit"]);
-    $routes->get("/(:num)/delete", "TravelController::delete/$1", ["as" => "modelTravelDelete"]);
+    $routes->get("/", "TravelController::viewList", ["as" => "travelViewList"]);
+    $routes->get("/add", "TravelController::viewAdd", ["as" => "travelViewAdd"]);
+    $routes->get("/(:num)", "TravelController::viewDetail/$1", ["as" => "travelViewDetail"]);
+    $routes->get("/(:num)/edit", "TravelController::viewEdit/$1", ["as" => "travelViewEdit"]);
+    $routes->get("/(:num)/delete", "TravelController::delete/$1", ["as" => "travelDelete"]);
 });
 
 /*
@@ -51,8 +51,11 @@ $routes->get("/login", "LoginController::view", ["as" => "loginControllerView"])
  */
 $routes->post("/login", "LoginController::login", ["as" => "loginControllerLogin"]);
 $routes->get("/logout", "LoginController::logout", ["as" => "loginControllerLogout"]);
+
 $routes->post("/model/travel/add", "ModelTravelController::add", ["as" => "modelTravelControllerAdd"]);
 $routes->post("/model/travel/(:num)/edit", "ModelTravelController::edit/$1", ["as" => "modelTravelControllerEdit"]);
+
 $routes->post("/travel/add", "TravelController::add", ["as" => "travelControllerAdd"]);
 $routes->post("/travel/(:num)/edit", "TravelController::edit/$1", ["as" => "travelControllerEdit"]);
+
 $routes->post("/reviews/add", "ReviewController::add", ["as" => "reviewControllerAdd"]);
