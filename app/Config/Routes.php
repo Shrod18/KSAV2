@@ -36,23 +36,23 @@ $routes->group("/travel", function (RouteCollection $routes) {
  * Regroupement de routes pour les avis clients (reviews)
  */
 $routes->group("/reviews", function (RouteCollection $routes) {
-    $routes->get("/", "ReviewController::viewList", ["as" => "ReviewControllerViewList"]);
-    $routes->get("/add", "ReviewController::viewAdd", ["as" => "ReviewControllerViewAdd"]);
-    $routes->get("/(:num)", "ReviewController::viewDetail/$1", ["as" => "ReviewControllerViewDetail"]);
+    $routes->get("/", "ReviewController::viewList", ["as" => "reviewControllerViewList"]);
+    $routes->get("/add", "ReviewController::viewAdd", ["as" => "reviewControllerViewAdd"]);
+    $routes->get("/(:num)", "ReviewController::viewDetail/$1", ["as" => "reviewControllerViewDetail"]);
 });
 
-$routes->get("/", "HomeController::view", ["as" => "HomeControllerView"]);
-$routes->get("/login", "LoginController::view", ["as" => "LoginControllerView"]);
+$routes->get("/", "HomeController::view", ["as" => "homeControllerView"]);
+$routes->get("/login", "LoginController::view", ["as" => "loginControllerView"]);
 
 /*
  * --------------------------------------------------------------------
  * Routes de retour de formulaire
  * --------------------------------------------------------------------
  */
-$routes->post("/login", "LoginController::login", ["as" => "LoginControllerLogin"]);
-$routes->get("/logout", "LoginController::logout", ["as" => "LoginControllerLogout"]);
-$routes->post("/model/travel/add", "ModelTravelController::add", ["as" => "ModelTravelControllerAdd"]);
-$routes->post("/model/travel/(:num)/edit", "ModelTravelController::edit/$1", ["as" => "ModelTravelControllerEdit"]);
-$routes->post("/travel/add", "TravelController::add", ["as" => "TravelControllerAdd"]);
-$routes->post("/travel/(:num)/edit", "TravelController::edit/$1", ["as" => "TravelControllerEdit"]);
-$routes->post("/reviews/add", "ReviewController::add", ["as" => "ReviewControllerAdd"]);
+$routes->post("/login", "LoginController::login", ["as" => "loginControllerLogin"]);
+$routes->get("/logout", "LoginController::logout", ["as" => "loginControllerLogout"]);
+$routes->post("/model/travel/add", "ModelTravelController::add", ["as" => "modelTravelControllerAdd"]);
+$routes->post("/model/travel/(:num)/edit", "ModelTravelController::edit/$1", ["as" => "modelTravelControllerEdit"]);
+$routes->post("/travel/add", "TravelController::add", ["as" => "travelControllerAdd"]);
+$routes->post("/travel/(:num)/edit", "TravelController::edit/$1", ["as" => "travelControllerEdit"]);
+$routes->post("/reviews/add", "ReviewController::add", ["as" => "reviewControllerAdd"]);
