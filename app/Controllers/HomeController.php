@@ -6,6 +6,6 @@ class HomeController extends BaseController
 {
     public function view(): string
     {
-        return view("pages/home");
+        return view("pages/home", [ "page" => "home" ]);
     }
 }
