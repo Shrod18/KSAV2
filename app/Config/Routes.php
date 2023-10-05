@@ -18,7 +18,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->group("/travel", function (RouteCollection $routes) {
 
     $routes->group("/model", function (RouteCollection $routes) {
-        $routes->get("/", "ModelTravelController::viewList");
+        $routes->get("/", "ModelTravelController::viewList", ["as" => "modelTravelList"]);
         $routes->get("/add", "ModelTravelController::viewAdd");
         $routes->get("/(:num)", "ModelTravelController::viewDetail/$1");
         $routes->get("/(:num)/edit", "ModelTravelController::viewEdit/$1");
