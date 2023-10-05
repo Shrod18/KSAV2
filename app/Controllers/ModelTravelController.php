@@ -7,6 +7,7 @@ class TravelController extends BaseController
 {
     public function viewList(): string
     {
+        return "HELLO WORLD";
         $manager = new ModeleVoyageModel();
         $travels = $manager->findAll();
 
