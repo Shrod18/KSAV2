@@ -33,8 +33,8 @@
                 </a>
             </li>
             <li
-                class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open">
-                <a href="#" class="slds-context-bar__label-action" title="Travel">
+                class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click" onclick="toggleTravel(this)">
+                <a class="slds-context-bar__label-action" title="Travel">
                     <span class="slds-truncate" title="Travel">Voyages</span>
                 </a>
                 <div class="slds-context-bar__icon-action slds-p-left_none">
@@ -63,7 +63,7 @@
             </li>
             <li class="slds-context-bar__item">
                 <a href="#" class="slds-context-bar__label-action" title="Menu Item">
-                    <span class="slds-truncate" title="ReviewsCustomers">Retours Clients</span>
+                    <span class="slds-truncate" title="ReviewsCustomers">Avis Clients</span>
                 </a>
             </li>
             <li class="slds-context-bar__item">
