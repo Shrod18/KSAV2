@@ -1,16 +1,17 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\ModeleVoyageModel;
 
-class TravelController extends BaseController
+class ModelTravelController extends BaseController
 {
     public function viewList(): string
     {
         $manager = new ModeleVoyageModel();
-        $travels = $manager->findAll();
+        $models = $manager->findAll();
 
-        return view("pages/travel/model/list", ["travels" => $travels]);
+        return view("pages/travel/model/list", ["models" => $models]);
     }
 
     public function viewAdd(): string

@@ -1,9 +1,22 @@
 <?= $this->extend("_pattern") ?>
 
+<?= $this->section("assets") ?>
+    <script src="<?= base_url("resources/js/travel/model/list.js") ?>"></script>
+<?= $this->endSection() ?>
+
 <?= $this->section("main") ?>
 
     <?= $this->include("templates/navigation") ?>
 
-    <?= var_dump($travels) ?>
+    <div id="data" style="display: none;"><?= json_encode($models) ?></div>
+
+    <div class="slds-box" style="width: 95% !important; background-color: white; margin: auto; margin-top: 20px;">
+        <div style="display: flex; flex-direction: row; justify-content: space-between;">
+            <h2 class="slds-text-heading_medium">Liste de voyages</h2>
+            <a href="" class="slds-button slds-button_brand">Ajouter un voyage</a>
+        </div>
+        <hr style="margin: 30px 0;">
+        <table id="travel-datatable"></table>
+    </div>
 
 <?= $this->endSection() ?>

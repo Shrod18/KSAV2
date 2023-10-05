@@ -41,7 +41,7 @@
                     <button class="slds-button slds-button_icon slds-button_icon slds-context-bar__button"
                         aria-haspopup="true" title="OpenSubmenu">
                         <svg class="slds-button__icon" aria-hidden="true">
-                            <use xlink:href="resources/assets/icons/symbols.svg#chevrondown"></use>
+                            <use xlink:href="<?= base_url("resources/assets/icons/symbols.svg#chevrondown") ?>"></use>
                         </svg>
                         <span class="slds-assistive-text">Voyages</span>
                     </button>
