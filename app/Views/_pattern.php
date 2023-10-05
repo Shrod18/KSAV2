@@ -9,6 +9,7 @@
     <script src="<?= base_url("resources/libs/jquery/jquery.js") ?>"></script>
     <script src="<?= base_url("resources/libs/datatables/datatables.min.js") ?>"></script>
     <script src="<?= base_url("resources/js/navigation.js") ?>"></script>
+    <?= $this->renderSection("assets") ?>
 </head>
 <body>
     
