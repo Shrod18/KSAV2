@@ -33,46 +33,29 @@
                 </a>
             </li>
             <li
-                class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click">
-                <a href="#" class="slds-context-bar__label-action" title="Menu Item">
-                    <span class="slds-truncate" title="Menu Item">Voyages</span>
+                class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open">
+                <a href="#" class="slds-context-bar__label-action" title="Travel">
+                    <span class="slds-truncate" title="Travel">Voyages</span>
                 </a>
                 <div class="slds-context-bar__icon-action slds-p-left_none">
                     <button class="slds-button slds-button_icon slds-button_icon slds-context-bar__button"
                         aria-haspopup="true" title="Open menu item submenu">
                         <svg class="slds-button__icon" aria-hidden="true">
-                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevrondown"></use>
+                            <use xlink:href="resources/assets/icons/symbols.svg#chevrondown"></use>
                         </svg>
-                        <span class="slds-assistive-text">Open menu item submenu</span>
+                        <span class="slds-assistive-text">Voyages</span>
                     </button>
                 </div>
                 <div class="slds-dropdown slds-dropdown_right">
                     <ul class="slds-dropdown__list" role="menu">
                         <li class="slds-dropdown__item" role="presentation">
                             <a href="#" role="menuitem" tabindex="-1">
-                                <span class="slds-truncate" title="Main action">
-                                    <svg class="slds-icon slds-icon_x-small slds-icon-text-default slds-m-right_x-small"
-                                        aria-hidden="true">
-                                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use>
-                                    </svg>Main action</span>
-                            </a>
-                        </li>
-                        <li class="slds-dropdown__header slds-has-divider_top-space" role="separator">
-                            <span>Menu header</span>
-                        </li>
-                        <li class="slds-dropdown__item" role="presentation">
-                            <a href="#" role="menuitem" tabindex="-1">
-                                <span class="slds-truncate" title="Menu Item One">Menu Item One</span>
+                                <span class="slds-truncate" title="Menu Item One">Modèle Voyages</span>
                             </a>
                         </li>
                         <li class="slds-dropdown__item" role="presentation">
                             <a href="#" role="menuitem" tabindex="-1">
-                                <span class="slds-truncate" title="Menu Item Two">Menu Item Two</span>
-                            </a>
-                        </li>
-                        <li class="slds-dropdown__item" role="presentation">
-                            <a href="#" role="menuitem" tabindex="-1">
-                                <span class="slds-truncate" title="Menu Item Three">Menu Item Three</span>
+                                <span class="slds-truncate" title="Menu Item Two">Instance de Voyages</span>
                             </a>
                         </li>
                     </ul>
@@ -80,17 +63,12 @@
             </li>
             <li class="slds-context-bar__item">
                 <a href="#" class="slds-context-bar__label-action" title="Menu Item">
-                    <span class="slds-truncate" title="Menu Item">Liste Voyages</span>
+                    <span class="slds-truncate" title="ReviewsCustomers">Retours Clients</span>
                 </a>
             </li>
             <li class="slds-context-bar__item">
                 <a href="#" class="slds-context-bar__label-action" title="Menu Item">
-                    <span class="slds-truncate" title="Menu Item">Retours Clients</span>
-                </a>
-            </li>
-            <li class="slds-context-bar__item">
-                <a href="#" class="slds-context-bar__label-action" title="Menu Item">
-                    <span class="slds-truncate" title="Menu Item">Deconnexion</span>
+                    <span class="slds-truncate" title="Disconnect">Deconnexion</span>
                 </a>
             </li>
         </ul>
