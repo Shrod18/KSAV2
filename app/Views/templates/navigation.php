@@ -20,7 +20,7 @@
                 </button>
             </div>
             <span class="slds-context-bar__label-action slds-context-bar__app-name">
-                <span class="slds-truncate" title="App Name">KSAV</span>
+                <span class="slds-truncate" title="KSAV">KSAV</span>
             </span>
         </div>
     </div>
@@ -28,7 +28,7 @@
         <ul class="slds-grid">
             <li class="slds-context-bar__item slds-is-active">
                 <a href="#" class="slds-context-bar__label-action" title="Home">
-                    <span class="slds-assistive-text">Current Page:</span>
+                    <span class="slds-assistive-text">Page actuelle:</span>
                     <span class="slds-truncate" title="Home">Accueil</span>
                 </a>
             </li>
@@ -39,7 +39,7 @@
                 </a>
                 <div class="slds-context-bar__icon-action slds-p-left_none">
                     <button class="slds-button slds-button_icon slds-button_icon slds-context-bar__button"
-                        aria-haspopup="true" title="Open menu item submenu">
+                        aria-haspopup="true" title="OpenSubmenu">
                         <svg class="slds-button__icon" aria-hidden="true">
                             <use xlink:href="resources/assets/icons/symbols.svg#chevrondown"></use>
                         </svg>
@@ -50,24 +50,24 @@
                     <ul class="slds-dropdown__list" role="menu">
                         <li class="slds-dropdown__item" role="presentation">
                             <a href="#" role="menuitem" tabindex="-1">
-                                <span class="slds-truncate" title="Menu Item One">Modèle Voyages</span>
+                                <span class="slds-truncate" title="TravelModel">Modèle Voyages</span>
                             </a>
                         </li>
                         <li class="slds-dropdown__item" role="presentation">
                             <a href="#" role="menuitem" tabindex="-1">
-                                <span class="slds-truncate" title="Menu Item Two">Instance de Voyages</span>
+                                <span class="slds-truncate" title="TravelInstance">Instance de Voyages</span>
                             </a>
                         </li>
                     </ul>
                 </div>
             </li>
             <li class="slds-context-bar__item">
-                <a href="#" class="slds-context-bar__label-action" title="Menu Item">
+                <a href="#" class="slds-context-bar__label-action" title="ReviewsCustomers">
                     <span class="slds-truncate" title="ReviewsCustomers">Avis Clients</span>
                 </a>
             </li>
             <li class="slds-context-bar__item">
-                <a href="#" class="slds-context-bar__label-action" title="Menu Item">
+                <a href="#" class="slds-context-bar__label-action" title="Disconnect">
                     <span class="slds-truncate" title="Disconnect">Deconnexion</span>
                 </a>
             </li>
