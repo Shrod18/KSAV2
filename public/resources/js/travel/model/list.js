@@ -1,8 +1,15 @@
+function toggleMenu(element) {
+    let parent = element.parentElement;
+    parent.classList.toggle("slds-is-open");
+    let open = parent.classList.contains("slds-is-open");
+    element.innerHTML = element.innerHTML.replace(open ? "down" : "up", open ? "up" : "down");
+}
+
 $(document).ready(function() {
 
     const btnAction = (id) => {
-        let html = "<div class='slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open'>" +
-                    "<button class='slds-button slds-button_icon slds-button_icon-border-filled'>" +
+        let html = "<div class='slds-dropdown-trigger slds-dropdown-trigger_click'>" +
+                    "<button class='slds-button slds-button_icon slds-button_icon-border-filled' onclick='toggleMenu(this)'>" +
                     "<svg class='slds-button__icon' aria-hidden='true'>" +
                     "<use xlink:href='/resources/assets/icons/symbols.svg#down'></use>" +
                     "</svg>" +
@@ -31,9 +38,10 @@ $(document).ready(function() {
 
     $("#travel-datatable").DataTable({
         language: {
-            url: "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
+            url: "/resources/libs/datatables/French.json"
         },
         data: data,
+        responsive: true,
         columns: [
             { title: "ID", data: "IDMODELEVOYAGE" },
             { title: "ID type voyage", data: "IDTYPEVOYAGE" },
