@@ -23,6 +23,8 @@ $routes->group("/travel", function (RouteCollection $routes) {
         $routes->get("/(:num)", "ModelTravelController::viewDetail/$1", ["as" => "modelTravelViewDetail"]);
         $routes->get("/(:num)/edit", "ModelTravelController::viewEdit/$1", ["as" => "modelTravelViewEdit"]);
         $routes->get("/(:num)/delete", "ModelTravelController::delete/$1", ["as" => "modelTravelDelete"]);
+        $routes->post("/add", "ModelTravelController::add", ["as" => "modelTravelControllerAdd"]);
+        $routes->post("/(:num)/edit", "ModelTravelController::edit/$1", ["as" => "modelTravelControllerEdit"]);
     });
 
     $routes->get("/", "TravelController::viewList", ["as" => "travelViewList"]);
@@ -30,6 +32,8 @@ $routes->group("/travel", function (RouteCollection $routes) {
     $routes->get("/(:num)", "TravelController::viewDetail/$1", ["as" => "travelViewDetail"]);
     $routes->get("/(:num)/edit", "TravelController::viewEdit/$1", ["as" => "travelViewEdit"]);
     $routes->get("/(:num)/delete", "TravelController::delete/$1", ["as" => "travelDelete"]);
+    $routes->post("/add", "TravelController::add", ["as" => "travelControllerAdd"]);
+    $routes->post("/(:num)/edit", "TravelController::edit/$1", ["as" => "travelControllerEdit"]);
 });
 
 /*
@@ -52,10 +56,6 @@ $routes->get("/login", "LoginController::view", ["as" => "loginControllerView"])
 $routes->post("/login", "LoginController::login", ["as" => "loginControllerLogin"]);
 $routes->get("/logout", "LoginController::logout", ["as" => "loginControllerLogout"]);
 
-$routes->post("/model/travel/add", "ModelTravelController::add", ["as" => "modelTravelControllerAdd"]);
-$routes->post("/model/travel/(:num)/edit", "ModelTravelController::edit/$1", ["as" => "modelTravelControllerEdit"]);
 
-$routes->post("/travel/add", "TravelController::add", ["as" => "travelControllerAdd"]);
-$routes->post("/travel/(:num)/edit", "TravelController::edit/$1", ["as" => "travelControllerEdit"]);
 
 $routes->post("/reviews/add", "ReviewController::add", ["as" => "reviewControllerAdd"]);
