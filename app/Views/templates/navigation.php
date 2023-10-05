@@ -67,8 +67,8 @@
                 </a>
             </li>
             <li class="slds-context-bar__item">
-                <a href="#" class="slds-context-bar__label-action" title="Disconnect">
-                    <span class="slds-truncate" title="Disconnect">Deconnexion</span>
+                <a href="#" class="slds-context-bar__label-action" title="Logout">
+                    <span class="slds-truncate" title="Logout">Deconnexion</span>
                 </a>
             </li>
         </ul>
