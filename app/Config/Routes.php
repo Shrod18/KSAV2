@@ -43,19 +43,14 @@ $routes->group("/reviews", function (RouteCollection $routes) {
     $routes->get("/", "ReviewController::viewList", ["as" => "reviewControllerViewList"]);
     $routes->get("/add", "ReviewController::viewAdd", ["as" => "reviewControllerViewAdd"]);
     $routes->get("/(:num)", "ReviewController::viewDetail/$1", ["as" => "reviewControllerViewDetail"]);
+    $routes->post("/add", "ReviewController::add", ["as" => "reviewControllerAdd"]);
 });
 
 $routes->get("/", "HomeController::view", ["as" => "homeControllerView"]);
-$routes->get("/login", "LoginController::view", ["as" => "loginControllerView"]);
 
-/*
- * --------------------------------------------------------------------
- * Routes de retour de formulaire
- * --------------------------------------------------------------------
- */
+$routes->get("/login", "LoginController::view", ["as" => "loginControllerView"]);
 $routes->post("/login", "LoginController::login", ["as" => "loginControllerLogin"]);
 $routes->get("/logout", "LoginController::logout", ["as" => "loginControllerLogout"]);
 
 
 
-$routes->post("/reviews/add", "ReviewController::add", ["as" => "reviewControllerAdd"]);
