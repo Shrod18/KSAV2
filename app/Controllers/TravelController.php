@@ -10,7 +10,7 @@ class TravelController extends BaseController
         $manager = new ModeleVoyageModel();
         $travels = $manager->findAll();
 
-        return view("pages/travel/list", ["travels" => $travels]);
+        return view("pages/travel/list", [ "page" => "instanceTravel", "travels" => $travels]);
     }
 
     public function viewAdd(): string
