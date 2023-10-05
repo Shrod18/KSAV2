@@ -3,4 +3,3 @@ function toggleTravel(element) {
     let open = element.classList.contains("slds-is-open");
     element.innerHTML = element.innerHTML.replace((open ? "chevrondown" : "chevronup"), (open ? "chevronup" : "chevrondown"));
 }
-
