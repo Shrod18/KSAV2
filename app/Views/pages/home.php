@@ -19,7 +19,7 @@
             <div class="slds-carousel__panels" style="transform:translateX(--200%)">
                 <div id="content-id-61" class="slds-carousel__panel" role="tabpanel" aria-labelledby="indicator-id-64">
                     <div class="slds-carousel__image">
-                        <img src="<?= base_url("resources/assets/images/carousel/voyage.jpg") ?>" alt="Voyages" />
+                        <img src="<?= base_url("resources/assets/images/voyage.jpg") ?>" alt="Voyages" />
                     </div>
                 </div>
             </div>
