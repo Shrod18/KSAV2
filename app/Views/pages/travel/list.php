@@ -8,7 +8,7 @@
 
     <?= $this->include("templates/navigation") ?>
 
-    <div id="data" style="display: none;"><?= json_encode($models) ?></div>
+    <div id="data" style="display: none;"><?= json_encode($travels) ?></div>
 
     <div class="slds-box" style="width: 95% !important; background-color: white; margin: auto; margin-top: 20px;">
         <div style="display: flex; flex-direction: row; justify-content: space-between;">

@@ -16,7 +16,7 @@ class TravelController extends BaseController
         $builder->join("modelevoyage", "modelevoyage.IDTYPEVOYAGE = voyage.IDVOYAGE", "left");
         $builder->join("typevoyage", "modelevoyage.IDTYPEVOYAGE = typevoyage.IDTYPEVOYAGE", "left");
         
-        $models = $builder->get()->getResult();
+        $travels = $builder->get()->getResult();
 
         return view("pages/travel/list", [ "page" => "instanceTravel", "travels" => $travels]);
 
