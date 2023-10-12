@@ -18,7 +18,7 @@ $(document).ready(function() {
                     "<div class='slds-dropdown slds-dropdown_left'>" +
                     "<ul class='slds-dropdown__list' role='menu' aria-label='Show More'>" +
                     "<li class='slds-dropdown__item' role='presentation'>" +
-                    "<a href='#' role='menuitem' tabindex='0'>" +
+                    "<a href='/travel/model/" + id + "/edit' role='menuitem' tabindex='0'>" +
                     "<span class='slds-truncate'>Modifier</span>" +
                     "</a>" +
                     "</li>" +
