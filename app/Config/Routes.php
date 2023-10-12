@@ -26,7 +26,7 @@ $routes->group("travel", function (RouteCollection $routes) {
         $routes->get("(:num)/edit", "ModelTravelController::viewEdit/$1", ["as" => "modelTravelViewEdit"]);
         $routes->post("(:num)/edit", "ModelTravelController::edit/$1", ["as" => "modelTravelEdit"]);
 
-        $routes->post("(:num)/delete", "ModelTravelController::delete/$1", ["as" => "modelTravelDelete"]);
+        $routes->get("(:num)/delete", "ModelTravelController::delete/$1", ["as" => "modelTravelDelete"]);
     });
 
     $routes->get("/", "TravelController::viewList", ["as" => "travelViewList"]);
@@ -38,7 +38,7 @@ $routes->group("travel", function (RouteCollection $routes) {
     $routes->get("(:num)/edit", "TravelController::viewEdit/$1", ["as" => "travelViewEdit"]);    
     $routes->post("(:num)/edit", "TravelController::edit/$1", ["as" => "travelEdit"]);
 
-    $routes->post("(:num)/delete", "TravelController::delete/$1", ["as" => "travelDelete"]);
+    $routes->get("(:num)/delete", "TravelController::delete/$1", ["as" => "travelDelete"]);
 });
 
 /*

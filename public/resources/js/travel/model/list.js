@@ -23,7 +23,7 @@ $(document).ready(function() {
                     "</a>" +
                     "</li>" +
                     "<li class='slds-dropdown__item' role='presentation'>" +
-                    "<a href='#' role='menuitem' tabindex='-1'>" +
+                    "<a href='/travel/model/" + id + "/delete' role='menuitem' tabindex='-1'>" +
                     "<span class='slds-truncate'>Supprimer</span>" +
                     "</a>" +
                     "</li>" +
