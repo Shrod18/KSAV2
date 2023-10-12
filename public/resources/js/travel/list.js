@@ -43,14 +43,17 @@ $(document).ready(function() {
         data: data,
         responsive: true,
         columns: [
-            { title: "ID", data: "IDVOYAGE" },
-            { title: "Nom", data: "modelevoyage.NOM" },
-            { title: "Type voyage", data: "typevoyage.LIBELLE" },
-            { title: "Ville de Départ", data: "VILLEDEPART" },
-            { title: "Destination", data: "DESTINATION" },
-            { title: "Date de départ", data: "DATEDEPART" },
-            { title: "Description", data: "DESCRIPTION" },
-            { title: "Action", data: "IDMODELEVOYAGE", render: function(data, type, row) {
+            { title: "ID Voyage", data: "ID_VOYAGE" },
+            { title: "Nom", data: "modelevoyage.ID_MODELEVOYAGE", render: function(data, type, row) {
+                return data + " - " + row.NOM_MODELEVOYAGE;
+            }},
+            { title: "Type Voyage", data: "ID_TYPEVOYAGE", render: function(data, type, row) {
+                return data + " - " + row.LIBELLE_TYPEVOYAGE;
+            }},
+            { title: "Destination", data: "DESTINATION_MODELEVOYAGE" },
+            { title: "Date de départ", data: "DATEDEPART_VOYAGE" },
+            { title: "Description", data: "DESCRIPTION_MODELEVOYAGE" },
+            { title: "Action", data: "ID_VOYAGE", render: function(data, type, row) {
                 return btnAction(data);
             }},
         ]
