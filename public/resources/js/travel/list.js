@@ -44,7 +44,7 @@ $(document).ready(function() {
         responsive: true,
         columns: [
             { title: "ID Voyage", data: "ID_VOYAGE" },
-            { title: "Nom", data: "modelevoyage.ID_MODELEVOYAGE", render: function(data, type, row) {
+            { title: "Nom", data: "ID_MODELEVOYAGE", render: function(data, type, row) {
                 return data + " - " + row.NOM_MODELEVOYAGE;
             }},
             { title: "Type Voyage", data: "ID_TYPEVOYAGE", render: function(data, type, row) {
