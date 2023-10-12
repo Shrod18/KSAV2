@@ -19,6 +19,6 @@ class ModelTravelController extends BaseController
 
     public function viewAdd(): string
     {
-        return view("pages/travel/add");
+        return view("pages/travel/model/action", [ "page" => "modelTravel", "action" => "add" ]);
     }
 }
