@@ -20,15 +20,12 @@ class TravelController extends BaseController
         
         $travels = $builder->get()->getResult();
 
-        // var_dump($travels);
-        // die();
-
         return view("pages/travel/list", [ "page" => "instanceTravel", "travels" => $travels]);
 
     }
 
     /**
-     * @description Fonction que retourne la vue d'ajout d'un modèle de voyage
+     * @description Fonction que retourne la vue d'ajout d'un voyage
      * @return string
      */
     public function viewAdd(): string
@@ -44,7 +41,7 @@ class TravelController extends BaseController
     }
 
     /**
-     * @description Fonction qui permet d'ajouter un modèle de voyage
+     * @description Fonction qui permet d'ajouter un voyage
      * @return string
      */
     public function add(): RedirectResponse
@@ -62,7 +59,7 @@ class TravelController extends BaseController
     }
 
     /**
-     * @description Fonction que retourne la vue de modification d'un modèle de voyage
+     * @description Fonction que retourne la vue de modification d'un voyage
      * @param int $id
      * @return string
      */
@@ -84,7 +81,7 @@ class TravelController extends BaseController
     }
 
     /**
-     * @description Fonction qui permet de modifier un modèle de voyage
+     * @description Fonction qui permet de modifier un voyage
      * @param int $id
      * @return string
      */
@@ -102,6 +99,17 @@ class TravelController extends BaseController
         return redirect()->to(url_to("travelViewList"));
     }
 
-    
+    /**
+     * @description Fonction qui permet de supprimer un voyage
+     * @param int $id
+     * @return string
+     */
+    public function delete(int $id): RedirectResponse
+    {
+        $manager = new VoyageModel();
+        $manager->delete($id);
+
+        return redirect()->to(url_to("travelViewList"));
+    }
 
 }
