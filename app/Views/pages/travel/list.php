@@ -8,11 +8,11 @@
 
     <?= $this->include("templates/navigation") ?>
 
-    <div id="data" style="display: none;"><?= json_encode($models) ?></div>
+    <div id="data" style="display: none;"><?= json_encode($travels) ?></div>
 
     <div class="slds-box" style="width: 95% !important; background-color: white; margin: auto; margin-top: 20px;">
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
-            <h2 class="slds-text-heading_medium">Liste d'instance de voyages</h2>
+            <h2 class="slds-text-heading_medium">Liste d'instances de voyages</h2>
             <a href="<?= url_to("travelViewAdd") ?>" class="slds-button slds-button_brand">Ajouter une instance de voyage</a>
         </div>
         <hr style="margin: 30px 0;">
