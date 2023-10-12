@@ -1,9 +1,5 @@
 <?= $this->extend("_pattern") ?>
 
-<?= $this->section("assets") ?>
-    <link rel="stylesheet" href="resources/assets/styles/home.css">
-<?= $this->endSection() ?>
-
 <?= $this->section("main") ?>
 
 <?= $this->include("templates/navigation") ?>
