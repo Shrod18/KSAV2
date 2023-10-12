@@ -101,4 +101,17 @@ class ModelTravelController extends BaseController
         return redirect()->to(url_to("modelTravelList"));
     }
 
+    /**
+     * @description Fonction qui permet de supprimer un modèle de voyage
+     * @param int $id
+     * @return string
+     */
+    public function delete(int $id): RedirectResponse
+    {
+        $manager = new ModeleVoyageModel();
+        $manager->delete($id);
+
+        return redirect()->to(url_to("modelTravelList"));
+    }
+
 }
