@@ -22,6 +22,11 @@ class ReviewController extends BaseController
 
     }
 
+    /**
+     * Permet d'afficher le formulaire d'ajout d'un avis
+     *
+     * @return string
+     */
     public function viewAdd(): string
     {
         return view("pages/review/add");

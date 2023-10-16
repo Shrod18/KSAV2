@@ -25,7 +25,8 @@ class TravelController extends BaseController
     }
 
     /**
-     * @description Fonction que retourne la vue d'ajout d'un voyage
+     * Fonction que retourne la vue d'ajout d'un voyage
+     * 
      * @return string
      */
     public function viewAdd(): string
@@ -41,7 +42,8 @@ class TravelController extends BaseController
     }
 
     /**
-     * @description Fonction qui permet d'ajouter un voyage
+     * Fonction qui permet d'ajouter un voyage
+     * 
      * @return string
      */
     public function add(): RedirectResponse
@@ -59,7 +61,8 @@ class TravelController extends BaseController
     }
 
     /**
-     * @description Fonction que retourne la vue de modification d'un voyage
+     * Fonction que retourne la vue de modification d'un voyage
+     * 
      * @param int $id
      * @return string
      */
@@ -81,7 +84,8 @@ class TravelController extends BaseController
     }
 
     /**
-     * @description Fonction qui permet de modifier un voyage
+     * Fonction qui permet de modifier un voyage
+     * 
      * @param int $id
      * @return string
      */
@@ -100,7 +104,8 @@ class TravelController extends BaseController
     }
 
     /**
-     * @description Fonction qui permet de supprimer un voyage
+     * Fonction qui permet de supprimer un voyage
+     * 
      * @param int $id
      * @return string
      */

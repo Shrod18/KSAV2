@@ -42,6 +42,22 @@ $routes->group("travel", function (RouteCollection $routes) {
 });
 
 /*
+ * Regroupement de routes pour les clients
+ */
+$routes->group("customers", function (RouteCollection $routes) {
+    $routes->get("/", "CustomerController::viewList", ["as" => "customerViewList"]);
+
+    $routes->get("add", "CustomerController::viewAdd", ["as" => "customerViewAdd"]);
+    $routes->post("add", "CustomerController::add", ["as" => "customerAdd"]);
+
+    $routes->get("(:num)/edit", "CustomerController::viewEdit/$1", ["as" => "customerViewEdit"]);
+    $routes->post("(:num)/edit", "CustomerController::edit/$1", ["as" => "customerEdit"]);
+
+    $routes->get("(:num)/delete", "CustomerController::delete/$1", ["as" => "customerDelete"]);
+});
+ 
+
+/*
  * Regroupement de routes pour les avis clients (reviews)
  */
 $routes->group("reviews", function (RouteCollection $routes) {

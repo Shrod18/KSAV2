@@ -27,18 +27,18 @@
     <nav class="slds-context-bar__secondary" role="navigation">
         <ul class="slds-grid">
             <li class="slds-context-bar__item <?= $page == "home" ? "slds-is-active" : "" ?>">
-                <a href="<?= url_to("homeView") ?>" class="slds-context-bar__label-action" title="Home">
-                    <span class="slds-truncate" title="Home">Accueil</span>
+                <a href="<?= url_to("homeView") ?>" class="slds-context-bar__label-action">
+                    <span class="slds-truncate">Accueil</span>
                 </a>
             </li>
             <li
                 class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click <?= $page == "modelTravel" || $page == "instanceTravel" ? "slds-is-active" : "" ?>" onclick="toggleTravel(this)">
-                <a class="slds-context-bar__label-action" title="Travel">
-                    <span class="slds-truncate" title="Travel">Voyages</span>
+                <a class="slds-context-bar__label-action">
+                    <span class="slds-truncate">Voyages</span>
                 </a>
                 <div class="slds-context-bar__icon-action slds-p-left_none">
                     <button class="slds-button slds-button_icon slds-button_icon slds-context-bar__button"
-                        aria-haspopup="true" title="OpenSubmenu">
+                        aria-haspopup="true">
                         <svg class="slds-button__icon" aria-hidden="true">
                             <use xlink:href="<?= base_url("resources/assets/icons/symbols.svg#chevrondown") ?>"></use>
                         </svg>
@@ -49,25 +49,30 @@
                     <ul class="slds-dropdown__list" role="menu">
                         <li class="slds-dropdown__item" role="presentation">
                             <a href="<?= url_to("modelTravelList") ?>" role="menuitem" tabindex="-1">
-                                <span class="slds-truncate" title="TravelModel">Modèle Voyages</span>
+                                <span class="slds-truncate">Modèle Voyages</span>
                             </a>
                         </li>
                         <li class="slds-dropdown__item" role="presentation">
                             <a href="<?= url_to("travelViewList") ?>" role="menuitem" tabindex="-1">
-                                <span class="slds-truncate" title="TravelInstance">Instance de Voyages</span>
+                                <span class="slds-truncate">Instance de Voyages</span>
                             </a>
                         </li>
                     </ul>
                 </div>
             </li>
             <li class="slds-context-bar__item">
-                <a href="<?= url_to("reviewViewList") ?>" class="slds-context-bar__label-action <?= $page == "reviews" ? "slds-is-active" : "" ?>" title="ReviewsCustomers">
-                    <span class="slds-truncate" title="ReviewsCustomers">Avis Clients</span>
+                <a href="<?= url_to("customerViewList") ?>" class="slds-context-bar__label-action <?= $page == "customers" ? "slds-is-active" : "" ?>" title="ReviewsCustomers">
+                    <span class="slds-truncate">Clients</span>
                 </a>
             </li>
             <li class="slds-context-bar__item">
-                <a href="<?= url_to("loginLogin") ?>" class="slds-context-bar__label-action" title="Logout">
-                    <span class="slds-truncate" title="Logout">Deconnexion</span>
+                <a href="<?= url_to("reviewViewList") ?>" class="slds-context-bar__label-action <?= $page == "reviews" ? "slds-is-active" : "" ?>" title="ReviewsCustomers">
+                    <span class="slds-truncate">Avis</span>
+                </a>
+            </li>
+            <li class="slds-context-bar__item">
+                <a href="<?= url_to("loginLogin") ?>" class="slds-context-bar__label-action">
+                    <span class="slds-truncate">Deconnexion</span>
                 </a>
             </li>
         </ul>

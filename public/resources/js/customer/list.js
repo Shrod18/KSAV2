@@ -1,3 +1,10 @@
+function toggleMenu(element) {
+    let parent = element.parentElement;
+    parent.classList.toggle("slds-is-open");
+    let open = parent.classList.contains("slds-is-open");
+    element.innerHTML = element.innerHTML.replace(open ? "down" : "up", open ? "up" : "down");
+}
+
 $(document).ready(function() {
 
     const btnAction = (id) => {
@@ -11,12 +18,12 @@ $(document).ready(function() {
                     "<div class='slds-dropdown slds-dropdown_left'>" +
                     "<ul class='slds-dropdown__list' role='menu' aria-label='Show More'>" +
                     "<li class='slds-dropdown__item' role='presentation'>" +
-                    "<a href='/travel/" + id + "/edit' role='menuitem' tabindex='0'>" +
+                    "<a href='/customers/" + id + "/edit' role='menuitem' tabindex='0'>" +
                     "<span class='slds-truncate'>Modifier</span>" +
                     "</a>" +
                     "</li>" +
                     "<li class='slds-dropdown__item' role='presentation'>" +
-                    "<a href='/travel/" + id + "/delete' role='menuitem' tabindex='-1'>" +
+                    "<a href='/customers/" + id + "/delete' role='menuitem' tabindex='-1'>" +
                     "<span class='slds-truncate'>Supprimer</span>" +
                     "</a>" +
                     "</li>" +
@@ -29,21 +36,20 @@ $(document).ready(function() {
     const data = JSON.parse(document.getElementById("data").innerText);
     document.getElementById("data").remove();
 
-    $("#review-datatable").DataTable({
+    $("#customer-datatable").DataTable({
         language: {
             url: "/resources/libs/datatables/French.json"
         },
         data: data,
         responsive: true,
         columns: [
-            { title: "ID", data: "ID_MODELEVOYAGE" },
-            { title: "ID type voyage", data: "ID_TYPEVOYAGE", render: function(data, type, row) {
-                return data + " - " + row["LIBELLE_TYPEVOYAGE"];
-            }},
-            { title: "Nom", data: "NOM_MODELEVOYAGE" },
-            { title: "Description", data: "DESCRIPTION_MODELEVOYAGE" },
-            { title: "Destination", data: "DESTINATION_MODELEVOYAGE" },
-            { title: "Action", data: "ID_MODELEVOYAGE", render: function(data, type, row) {
+            { title: "ID", data: "IDCLIENT" },
+            { title: "Nom", data: "NOM" },
+            { title: "Prenom", data: "PRENOM" },
+            { title: "Adresse", data: "ADRESSE" },
+            { title: "Email", data: "EMAIL" },
+            { title: "Telephone", data: "TEL" },
+            { title: "Action", data: "IDCLIENT", render: function(data, type, row) {
                 return btnAction(data);
             }},
         ]
