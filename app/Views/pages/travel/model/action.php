@@ -2,11 +2,13 @@
 
 <?= $this->section("main") ?>
 
-    <?= $this->include("templates/navigation") ?>
+<?= $this->include("templates/navigation") ?>
 
     <div class="slds-box" style="width: 95% !important; background-color: white; margin: auto; margin-top: 20px;">
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
-            <h2 class="slds-text-heading_medium"><?= ($action == "add" ? "Ajouter un modèle de voyage" : ("Modifier un modèle de voyage : " . $id)) ?></h2>
+            <h2 class="slds-text-heading_medium">
+                <?= ($action == "add" ? "Ajouter un modèle de voyage" : ("Modifier un modèle de voyage : " . $id)) ?>
+            </h2>
         </div>
         <hr style="margin: 30px 0;">
         <form action="<?= ($action == "add" ? url_to("modelTravelAdd") : url_to("modelTravelEdit", $id)) ?>" method="post">
@@ -19,7 +21,7 @@
                                     <div class="slds-form-element">
                                         <label class="slds-form-element__label" for="name_model-travel">Nom<abbr class="slds-required">*</abbr></label>
                                         <div class="slds-form-element__control">
-                                            <input type="text" name="name_model-travel" id="name_model-travel" class="slds-input" value="<?= ($action == "add" ? "" : $data["NOM"]) ?>"required>
+                                            <input type="text" name="name_model-travel" id="name_model-travel" class="slds-input" value="<?= ($action == "add" ? "" : $data["NOM"]) ?>" required>
                                         </div>
                                     </div>
                                 </div>
@@ -38,7 +40,7 @@
                                         <label class="slds-form-element__label" for="type_model-travel">Type de voyage<abbr class="slds-required">*</abbr></label>
                                         <div class="slds-form-element__control">
                                             <div class="slds-select_container">
-                                                <select class="slds-select" name="type_model-travel" id="type_model-travel">
+                                                <select class="slds-select" name="type_model-travel" id="type_model-travel" required>
                                                     <option value="">-- Sélectionner un type de voyage --</option>
                                                     <?php
                                                     foreach ($typesVoyages as $typeVoyage) {
@@ -54,9 +56,25 @@
                         </div>
                         <div class="slds-col">
                             <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="services_model-travel">Prestations<abbr class="slds-required">*</abbr></label>
+                                <div class="slds-form-element__control">
+                                    <div class="slds-select_container">
+                                        <select class="slds-select" name="services_model-travel" id="services_model-travel" required>
+                                            <option value="">-- Sélectionner les prestations --</option>
+                                            <?php
+                                                foreach ($services as $service) {
+                                                    echo "<option value='" . $service["IDPRESTATION"] . "' " . ($action == "add" ? "" : (in_array($service["IDPRESTATION"], $data["SERVICES"]) ? "selected" : "")) . ">" . $service["LIBELLE"] . "</option>";
+                                                } 
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="slds-form-element">
                                 <label class="slds-form-element__label" for="description_model-travel">Description<abbr class="slds-required">*</abbr></label>
                                 <div class="slds-form-element__control">
-                                    <textarea name="description_model-travel" id="description_model-travel" class="slds-textarea" style="height: 185px !important; resize: none;" required><?= ($action == "add" ? "" : $data["DESCRIPTION"]) ?></textarea>
+                                    <textarea name="description_model-travel" id="description_model-travel" class="slds-textarea" style="height: 110px !important; resize: none;" required><?= ($action == "add" ? "" : $data["DESCRIPTION"]) ?></textarea>
                                 </div>
                             </div>
                         </div>

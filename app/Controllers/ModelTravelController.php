@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\ModeleVoyageModel;
+use App\Models\PossederModel;
+use App\Models\PrestationModel;
 use App\Models\TypeVoyageModel;
 use CodeIgniter\HTTP\RedirectResponse;
 
@@ -32,10 +34,14 @@ class ModelTravelController extends BaseController
         $manager = new TypeVoyageModel();
         $typesVoyages = $manager->findAll();
 
+        $manager = new PrestationModel();
+        $servives = $manager->findAll();
+
         return view("pages/travel/model/action", [ 
             "page" => "modelTravel",
             "action" => "add", 
-            "typesVoyages" => $typesVoyages 
+            "typesVoyages" => $typesVoyages,
+            "services" => $servives
         ]);
     }
 
@@ -70,6 +76,9 @@ class ModelTravelController extends BaseController
     {
         $manager = new ModeleVoyageModel();
         $data = $manager->find($id);
+
+        $manager = new PossederModel();
+        $data["SERVICES"] = $manager->where("IDMODELEVOYAGE", $id)->findAll();
 
         $manager = new TypeVoyageModel();
         $typesVoyages = $manager->findAll();
