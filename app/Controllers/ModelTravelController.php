@@ -63,6 +63,21 @@ class ModelTravelController extends BaseController
 
         $manager->insert($data);
 
+        $id = $manager->getInsertID();
+
+        $manager = new PossederModel();
+
+        $services = $this->request->getPost("services_model-travel");
+
+        foreach ($services as $service) {
+            $data = [
+                "IDMODELEVOYAGE" => $id,
+                "IDPRESTATION" => $service
+            ];
+
+            $manager->insert($data);
+        }
+
         return redirect()->to(url_to("modelTravelList"));
     }
 
@@ -78,17 +93,27 @@ class ModelTravelController extends BaseController
         $data = $manager->find($id);
 
         $manager = new PossederModel();
-        $data["SERVICES"] = $manager->where("IDMODELEVOYAGE", $id)->findAll();
+        $result = $manager->select("IDPRESTATION")->where("IDMODELEVOYAGE", $id)->findAll();
+
+        $data["SERVICES"] = [];
+
+        foreach ($result as $service) {
+            array_push($data["SERVICES"], $service["IDPRESTATION"]);
+        }
 
         $manager = new TypeVoyageModel();
         $typesVoyages = $manager->findAll();
+
+        $manager = new PrestationModel();
+        $services = $manager->findAll();
 
         return view("pages/travel/model/action", [ 
             "page" => "modelTravel",
             "action" => "edit", 
             "id" => $id, 
             "data" => $data, 
-            "typesVoyages" => $typesVoyages 
+            "typesVoyages" => $typesVoyages,
+            "services" => $services
         ]);
     }
 
@@ -110,6 +135,21 @@ class ModelTravelController extends BaseController
         ];
 
         $manager->update($id, $data);
+
+        $manager = new PossederModel();
+
+        $manager->where("IDMODELEVOYAGE", $id)->delete();
+
+        $services = $this->request->getPost("services_model-travel");
+
+        foreach ($services as $service) {
+            $data = [
+                "IDMODELEVOYAGE" => $id,
+                "IDPRESTATION" => $service
+            ];
+
+            $manager->insert($data);
+        }
 
         return redirect()->to(url_to("modelTravelList"));
     }

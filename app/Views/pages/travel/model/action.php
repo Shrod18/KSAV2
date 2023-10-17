@@ -37,15 +37,14 @@
                                 <br>
                                 <div class="slds-col">
                                     <div class="slds-form-element">
-                                        <label class="slds-form-element__label" for="type_model-travel">Type de voyage<abbr class="slds-required">*</abbr></label>
+                                        <label class="slds-form-element__label" for="services_model-travel">Prestations<abbr class="slds-required">*</abbr></label>
                                         <div class="slds-form-element__control">
                                             <div class="slds-select_container">
-                                                <select class="slds-select" name="type_model-travel" id="type_model-travel" required>
-                                                    <option value="">-- Sélectionner un type de voyage --</option>
+                                                <select multiple class="slds-select" name="services_model-travel[]" id="services_model-travel" style="height:100px;" required>
                                                     <?php
-                                                    foreach ($typesVoyages as $typeVoyage) {
-                                                        echo "<option value='" . $typeVoyage["IDTYPEVOYAGE"] . "' " . ($action == "add" ? "" : ($typeVoyage["IDTYPEVOYAGE"] == $data["IDTYPEVOYAGE"] ? "selected" : "")) . ">" . $typeVoyage["LIBELLE"] . "</option>";
-                                                    }
+                                                        foreach ($services as $service) {
+                                                            echo "<option value='" . $service["IDPRESTATION"] . "' " . ($action == "add" ? "" : (in_array($service["IDPRESTATION"], $data["SERVICES"]) ? "selected" : "")) . ">" . $service["LIBELLE"] . "</option>";
+                                                        } 
                                                     ?>
                                                 </select>
                                             </div>
@@ -55,26 +54,32 @@
                             </div>
                         </div>
                         <div class="slds-col">
-                            <div class="slds-form-element">
-                                <label class="slds-form-element__label" for="services_model-travel">Prestations<abbr class="slds-required">*</abbr></label>
-                                <div class="slds-form-element__control">
-                                    <div class="slds-select_container">
-                                        <select class="slds-select" name="services_model-travel" id="services_model-travel" required>
-                                            <option value="">-- Sélectionner les prestations --</option>
-                                            <?php
-                                                foreach ($services as $service) {
-                                                    echo "<option value='" . $service["IDPRESTATION"] . "' " . ($action == "add" ? "" : (in_array($service["IDPRESTATION"], $data["SERVICES"]) ? "selected" : "")) . ">" . $service["LIBELLE"] . "</option>";
-                                                } 
-                                            ?>
-                                        </select>
+                            <div class="slds-grid slds-grid_vertical">
+                                <div class="slds-col">
+                                    <div class="slds-form-element">
+                                        <label class="slds-form-element__label" for="type_model-travel">Type de voyage<abbr class="slds-required">*</abbr></label>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-select_container">
+                                                <select class="slds-select" name="type_model-travel" id="type_model-travel" required>
+                                                    <option value="">-- Sélectionner un type de voyage --</option>
+                                                    <?php
+                                                        foreach ($typesVoyages as $typeVoyage) {
+                                                            echo "<option value='" . $typeVoyage["IDTYPEVOYAGE"] . "' " . ($action == "add" ? "" : ($typeVoyage["IDTYPEVOYAGE"] == $data["IDTYPEVOYAGE"] ? "selected" : "")) . ">" . $typeVoyage["LIBELLE"] . "</option>";
+                                                        }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <br>
-                            <div class="slds-form-element">
-                                <label class="slds-form-element__label" for="description_model-travel">Description<abbr class="slds-required">*</abbr></label>
-                                <div class="slds-form-element__control">
-                                    <textarea name="description_model-travel" id="description_model-travel" class="slds-textarea" style="height: 110px !important; resize: none;" required><?= ($action == "add" ? "" : $data["DESCRIPTION"]) ?></textarea>
+                                <br>
+                                <div class="slds-col">
+                                    <div class="slds-form-element">
+                                        <label class="slds-form-element__label" for="description_model-travel">Description<abbr class="slds-required">*</abbr></label>
+                                        <div class="slds-form-element__control">
+                                            <textarea name="description_model-travel" id="description_model-travel" class="slds-textarea" style="height: 180px !important; resize: none;" required><?= ($action == "add" ? "" : $data["DESCRIPTION"]) ?></textarea>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
