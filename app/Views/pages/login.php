@@ -8,15 +8,14 @@
         <div class="slds-col">
             <div class="slds-text-heading_large slds-text-align_center"><b>KSAV</b></div>
         </div>
-        <form action="" method="post">
+        <form action="<?= url_to("loginCheck") ?>" method="post">
             <div class="slds-col slds-m-top_x-large">
                 <div class="slds-grid slds-grid_vertical">
                     <div class="slds-col">
                         <div class="slds-form-element">
-                            <label class="slds-form-element__label" for="email">Email <abbr class="slds-required" title="required">* </abbr></label>
+                            <label class="slds-form-element__label" for="login">Email <abbr class="slds-required" title="required">* </abbr></label>
                             <div class="slds-form-element__control">
-                                <input type="text" id="email" placeholder="" required=""
-                                    class="slds-input" />
+                                <input type="text" id="login" name="login" required="" class="slds-input" />
                             </div>
                         </div>
                     </div>
@@ -24,8 +23,7 @@
                         <div class="slds-form-element">
                         <label class="slds-form-element__label" for="password">Mot de passe <abbr class="slds-required" title="required">* </abbr></label>
                             <div class="slds-form-element__control">
-                                <input type="text" id="password" placeholder="" required=""
-                                    class="slds-input" />
+                                <input type="password" id="password" name="password" required="" class="slds-input" />
                             </div>
                         </div>
                     </div>

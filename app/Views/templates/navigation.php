@@ -71,7 +71,7 @@
                 </a>
             </li>
             <li class="slds-context-bar__item">
-                <a href="<?= url_to("loginLogin") ?>" class="slds-context-bar__label-action">
+                <a href="<?= url_to("loginLogout") ?>" class="slds-context-bar__label-action">
                     <span class="slds-truncate">Deconnexion</span>
                 </a>
             </li>

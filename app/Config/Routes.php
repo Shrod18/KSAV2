@@ -10,12 +10,12 @@ use CodeIgniter\Router\RouteCollection;
  * --------------------------------------------------------------------
  * Routes de base
  * --------------------------------------------------------------------
-*/
+ */
 
 /*
  * Regroupement de routes pour les voyages (travel) et les modèles de voyages (model)
  */
-$routes->group("travel", function (RouteCollection $routes) {
+$routes->group("travel", ["filter" => "authguard"], function (RouteCollection $routes) {
 
     $routes->group("model", function (RouteCollection $routes) {
         $routes->get("/", "ModelTravelController::viewList", ["as" => "modelTravelList"]);
@@ -35,7 +35,7 @@ $routes->group("travel", function (RouteCollection $routes) {
     $routes->post("add", "TravelController::add", ["as" => "travelAdd"]);
 
     $routes->get("(:num)", "TravelController::viewDetail/$1", ["as" => "travelViewDetail"]);
-    $routes->get("(:num)/edit", "TravelController::viewEdit/$1", ["as" => "travelViewEdit"]);    
+    $routes->get("(:num)/edit", "TravelController::viewEdit/$1", ["as" => "travelViewEdit"]);
     $routes->post("(:num)/edit", "TravelController::edit/$1", ["as" => "travelEdit"]);
 
     $routes->get("(:num)/delete", "TravelController::delete/$1", ["as" => "travelDelete"]);
@@ -44,7 +44,7 @@ $routes->group("travel", function (RouteCollection $routes) {
 /*
  * Regroupement de routes pour les clients
  */
-$routes->group("customers", function (RouteCollection $routes) {
+$routes->group("customers", ["filter" => "authguard"], function (RouteCollection $routes) {
     $routes->get("/", "CustomerController::viewList", ["as" => "customerViewList"]);
 
     $routes->get("add", "CustomerController::viewAdd", ["as" => "customerViewAdd"]);
@@ -55,25 +55,22 @@ $routes->group("customers", function (RouteCollection $routes) {
 
     $routes->get("(:num)/delete", "CustomerController::delete/$1", ["as" => "customerDelete"]);
 });
- 
+
 
 /*
  * Regroupement de routes pour les avis clients (reviews)
  */
-$routes->group("reviews", function (RouteCollection $routes) {
+$routes->group("reviews", ["filter" => "authguard"], function (RouteCollection $routes) {
     $routes->get("/", "ReviewController::viewList", ["as" => "reviewViewList"]);
 
     $routes->get("add", "ReviewController::viewAdd", ["as" => "reviewViewAdd"]);
     $routes->post("add", "ReviewController::add", ["as" => "reviewAdd"]);
-    
+
     $routes->get("(:num)", "ReviewController::viewDetail/$1", ["as" => "reviewViewDetail"]);
 });
 
-$routes->get("/", "HomeController::view", ["as" => "homeView"]);
+$routes->get("/", "HomeController::view", ["as" => "homeView", "filter" => "authguard"]);
 
 $routes->get("/login", "LoginController::view", ["as" => "loginView"]);
-$routes->post("/login", "LoginController::login", ["as" => "loginLogin"]);
+$routes->post("/login", "LoginController::login", ["as" => "loginCheck"]);
 $routes->get("/logout", "LoginController::logout", ["as" => "loginLogout"]);
-
-
-
