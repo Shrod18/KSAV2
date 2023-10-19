@@ -55,25 +55,37 @@ class ReviewController extends BaseController
      */
     public function add(): RedirectResponse
     {
+        $columns = [
+            1 => "TRANSFERT",
+            2=> "HOTEL",
+            3 => "RESTAURATION",
+            4 => "SERVICEACCUEIL",
+            5 => "ANIMATION",
+            6 => "EXCURSIONSGUIDE",
+            7 => "TRANSPORTAERIEN",
+            8 => "TRANSPORTCAR",
+            9 => "THALASSOSPA",
+            10 => "CROISIERE"
+        ];
+
+        $manager = new ModeleVoyageModel();
+        $services = $manager->getServices(intval($this->request->getPost("travel-review")));
+
         $manager = new AvisModel();
 
         $data = [
-            "ID_RESERVATION" => intval($this->request->getPost("reservation-review")),
-            "ID_VOYAGE" => intval($this->request->getPost("id_travel-review")),
-            "ID_CLIENT" => intval($this->request->getPost("client-review")),
-            "TRANFERT" => $this->request->getPost("transfert-review"),
-            "HOTEL" => $this->request->getPost("hotel-review"),
-            "RESTAURATION" => $this->request->getPost("restauration-review"),
-            "SERVICEACCUEIL" => $this->request->getPost("service_accueil-review"),
-            "ANIMATION" => $this->request->getPost("animation-review"),
-            "EXCURSIONSGUIDE" => $this->request->getPost("excursions_guide-review"),
-            "TRANSPORTAERIEN" => $this->request->getPost("transport_aerien-review"),
-            "TRANSPORTCAR" => $this->request->getPost("transport_car-review"),
-            "THALASSOSPA" => $this->request->getPost("thalasso_spa-review"),
-            "CROISIERE" => $this->request->getPost("croisiere-review"),
+            "IDRESERVATION" => intval($this->request->getPost("reservation-review")),
+            "IDVOYAGE" => intval($this->request->getPost("id_travel-review")),
+            "IDCLIENT" => intval($this->request->getPost("client-review")),
             "POSITIFS" => $this->request->getPost("positifs-review"),
-            "NEGATIF" => $this->request->getPost("negatifs-review")
+            "NEGATIFS" => $this->request->getPost("negatifs-review")
         ];
+
+        if ($services != null || $services != []) {
+            foreach ($services as $service) {
+                $data[$columns[$service["ID_PRESTATION"]]] = intval($this->request->getPost("input_" . $service["ID_PRESTATION"] + "-review"));
+            }
+        }
 
         $manager->insert($data);
 

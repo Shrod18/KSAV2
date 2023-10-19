@@ -1,7 +1,7 @@
 INSERT INTO typevoyage (LIBELLE, DESCRIPTION) VALUES ("Circuit", ""),
     ("Séjour", ""),
     ("Croisière", "");
-INSERT INTO prestation (LIBELLE, DESCRIPTION) VALUES ("TRANSFERT", ""),
+INSERT INTO prestation (LIBELLE, DESCRIPTION) VALUES ("Transfert", ""),
     ("Hotel", ""),
     ("Restaurant", ""),
     ("Service/Accueil", ""),

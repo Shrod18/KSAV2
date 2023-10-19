@@ -28,9 +28,20 @@ function setReviewsInputs(id) {
     if (id != "") {
         const services = getTravelServices(id);
         let inputs = "";
-        for (let i = 0; i < services.length; i++) {
-            inputs += "";
-        }
+        services.forEach(function (service) {
+            inputs += "<div class='input-review'>" +
+                    "<div style='witdh: 300px;'>" +
+                    "<span>" + service["LIBELLE_PRESTATION"] + "</span>" +
+                    "</div>" +
+                    "<div style='width: 300px'>" +
+                    "<input name='input_" + service["ID_PRESTATION"] + "-review' type='range' class='slds-slider__range' value='0' min='1' max='3' step='1' style='width: 100%;'/>" +
+                    "</div>" +
+                    "</div>";
+        });
+        $("#inputs-review").html(inputs);
+            
+    } else {
+        $("#inputs-review").html("");
     }
 }
 

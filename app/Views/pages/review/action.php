@@ -54,13 +54,7 @@
                                     class="slds-required">*</abbr></label>
                             <div class="slds-form-element__control">
                                 <div class="slds-select_container">
-                                    <select class="slds-select" name="id_travel-review" id="id_travel-review" required>
-                                        <option value="">-- Sélectionner une date --</option>
-                                        <?php
-                                        /*foreach ($travels as $travel) {
-                                            echo "<option value='" . $travel["ID_VOYAGE"] . "'>" . $travel["DATEDEPART_VOYAGE"] . "</option>";
-                                        }*/
-                                        ?>
+                                    <select class="slds-select" name="id_travel-review" id="id_travel-review" required disabled>
                                     </select>
                                 </div>
                             </div>
@@ -90,38 +84,6 @@
             <div class="slds-col">
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col" id="inputs-review">
-                        <div class="input-review">
-                            <div style="witdh: 300px;">
-                                <span>Transfert</span>
-                            </div>
-                            <div style="width: 300px">
-                                <input name="transfert-review" type="range" class="slds-slider__range" value="0" min="1" max="3" step="1" style="width: 100%;"/>
-                            </div>
-                        </div>
-                        <div class="input-review">
-                            <div style="witdh: 300px;">
-                                <span>Transfert</span>
-                            </div>
-                            <div style="width: 300px">
-                                <input name="transfert-review" type="range" class="slds-slider__range" value="0" min="1" max="3" step="1" style="width: 100%;"/>
-                            </div>
-                        </div>  
-                        <div class="input-review">
-                            <div style="witdh: 300px;">
-                                <span>Transfert</span>
-                            </div>
-                            <div style="width: 300px">
-                                <input name="transfert-review" type="range" class="slds-slider__range" value="0" min="1" max="3" step="1" style="width: 100%;"/>
-                            </div>
-                        </div>
-                        <div class="input-review">
-                            <div style="witdh: 300px;">
-                                <span>Transfert</span>
-                            </div>
-                            <div style="width: 300px">
-                                <input name="transfert-review" type="range" class="slds-slider__range" value="0" min="1" max="3" step="1" style="width: 100%;"/>
-                            </div>
-                        </div>
                     </div>
                     <div class="slds-col" style="border-left: 1px solid #e5e5e5;">
                         <div class="slds-grid slds-grid_vertical">
@@ -151,8 +113,12 @@
                     <div class="slds-col">
                         <div class="slds-clearfix">
                             <div class="slds-float_right">
-                                <a href="<?= url_to("reviewViewList") ?>" class="slds-button slds-button_outline-brand">Annuler</a>
-                                <input type="submit" class="slds-button slds-button_brand" value="<?= ($action == "add" ? "Ajouter" : "Modifier") ?>">
+                                <a href="<?= url_to("reviewViewList") ?>" class="slds-button slds-button_outline-brand"><?= ($action == "add" ? "Annuler" : "Quitter") ?></a>
+                                <?php
+                                if ($action == "add") {
+                                    echo "<input type='submit' class='slds-button slds-button_brand' value='Ajouter'>";
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
