@@ -40,7 +40,7 @@
                                         <label class="slds-form-element__label" for="services_model-travel">Prestations<abbr class="slds-required">*</abbr></label>
                                         <div class="slds-form-element__control">
                                             <div class="slds-select_container">
-                                                <select multiple class="slds-select" name="services_model-travel[]" id="services_model-travel" style="height:100px;" required>
+                                                <select multiple class="slds-select" name="services_model-travel[]" id="services_model-travel" style="height:150px;" required>
                                                     <?php
                                                         foreach ($services as $service) {
                                                             echo "<option value='" . $service["IDPRESTATION"] . "' " . ($action == "add" ? "" : (in_array($service["IDPRESTATION"], $data["SERVICES"]) ? "selected" : "")) . ">" . $service["LIBELLE"] . "</option>";
@@ -75,9 +75,18 @@
                                 <br>
                                 <div class="slds-col">
                                     <div class="slds-form-element">
+                                        <label class="slds-form-element__label" for="touroperator_model-travel">Tour opérateur<abbr class="slds-required">*</abbr></label>
+                                        <div class="slds-form-element__control">
+                                            <input type="text" name="touroperator_model-travel" id="touroperator_model-travel" class="slds-input" value="<?= ($action == "add" ? "" : $data["TOUROPERATOR"]) ?>" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="slds-col">
+                                    <div class="slds-form-element">
                                         <label class="slds-form-element__label" for="description_model-travel">Description<abbr class="slds-required">*</abbr></label>
                                         <div class="slds-form-element__control">
-                                            <textarea name="description_model-travel" id="description_model-travel" class="slds-textarea" style="height: 180px !important; resize: none;" required><?= ($action == "add" ? "" : $data["DESCRIPTION"]) ?></textarea>
+                                            <textarea name="description_model-travel" id="description_model-travel" class="slds-textarea" style="height: 150px !important; resize: none;" required><?= ($action == "add" ? "" : $data["DESCRIPTION"]) ?></textarea>
                                         </div>
                                     </div>
                                 </div>
