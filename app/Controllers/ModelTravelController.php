@@ -14,7 +14,7 @@ class ModelTravelController extends BaseController
     {
         $manager = new ModeleVoyageModel();
         $builder = $manager->builder();
-        $builder->select("modelevoyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.NOM AS NOM_MODELEVOYAGE, modelevoyage.DESCRIPTION AS DESCRIPTION_MODELEVOYAGE, modelevoyage.DESTINATION AS DESTINATION_MODELEVOYAGE, modelevoyage.TOUROPERATOR as TOUROPERATEUR_MODELEVOYAGE, typevoyage.IDTYPEVOYAGE AS ID_TYPEVOYAGE, typevoyage.LIBELLE AS LIBELLE_TYPEVOYAGE, typevoyage.DESCRIPTION AS DESCRIPTION_TYPEVOYAGE");
+        $builder->select("modelevoyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.NOM AS NOM_MODELEVOYAGE, modelevoyage.DESCRIPTION AS DESCRIPTION_MODELEVOYAGE, modelevoyage.DESTINATION AS DESTINATION_MODELEVOYAGE, modelevoyage.TOUROPERATOR as TOUROPERATOR_MODELEVOYAGE, typevoyage.IDTYPEVOYAGE AS ID_TYPEVOYAGE, typevoyage.LIBELLE AS LIBELLE_TYPEVOYAGE, typevoyage.DESCRIPTION AS DESCRIPTION_TYPEVOYAGE");
         $builder->join("typevoyage", "modelevoyage.IDTYPEVOYAGE = typevoyage.IDTYPEVOYAGE", "left");
         $models = $builder->get()->getResultArray();
 
@@ -58,7 +58,8 @@ class ModelTravelController extends BaseController
             "NOM" => $this->request->getPost("name_model-travel"),
             "IDTYPEVOYAGE" => intval($this->request->getPost("type_model-travel")),
             "DESTINATION" => $this->request->getPost("destination_model-travel"),
-            "DESCRIPTION" => $this->request->getPost("description_model-travel")
+            "DESCRIPTION" => $this->request->getPost("description_model-travel"),
+            "TOUROPERATOR" => $this->request->getPost("touroperator_model-travel")
         ];
 
         $manager->insert($data);
@@ -131,7 +132,8 @@ class ModelTravelController extends BaseController
             "NOM" => $this->request->getPost("name_model-travel"),
             "IDTYPEVOYAGE" => intval($this->request->getPost("type_model-travel")),
             "DESTINATION" => $this->request->getPost("destination_model-travel"),
-            "DESCRIPTION" => $this->request->getPost("description_model-travel")
+            "DESCRIPTION" => $this->request->getPost("description_model-travel"),
+            "TOUROPERATOR" => $this->request->getPost("touroperator_model-travel")
         ];
 
         $manager->update($id, $data);
