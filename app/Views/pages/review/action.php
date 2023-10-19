@@ -83,187 +83,135 @@
             </div>
             <br>
             <div class="slds-col">
-                <div class="slds-grid slds-gutters" style="padding: 0 70px; gap: 300px;">
-                    <div class="slds-grid slds-grid_vertical">
-                        <div class="slds-col">
-                            <div class="slds-grid slds-grid_pull-padded-medium">
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <span>Transfert</span>
-                                </div>
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <div class="slds-form-element__control">
-                                        <div class="slds-slider">
-                                            <input type="range" id="slider-id-2" class="slds-slider__range" value="0" />
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col">
+                        <div class="slds-grid slds-grid_vertical">
+                            <div class="slds-col">
+                                <div class="slds-grid slds-grid_pull-padded-medium">
+                                    <div class="slds-col slds-p-horizontal_medium">
+                                        <span>Transfert</span>
+                                    </div>
+                                    <div class="slds-col slds-p-horizontal_medium">
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-slider">
+                                                <input type="range" class="slds-slider__range" value="0" min="1" max="3" step="1"/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="slds-col">
-                            <div class="slds-grid slds-grid_pull-padded-medium">
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <span>Hotel</span>
-                                </div>
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <div class="slds-form-element__control">
-                                        <div class="slds-slider">
-                                            <input type="range" id="slider-id-2" class="slds-slider__range" value="0" />
+                            <br>
+                            <div class="slds-col">
+                                <div class="slds-grid slds-grid_pull-padded-medium">
+                                    <div class="slds-col slds-p-horizontal_medium">
+                                        <span>Transfert</span>
+                                    </div>
+                                    <div class="slds-col slds-p-horizontal_medium">
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-slider">
+                                                <input type="range" class="slds-slider__range" value="0" min="1" max="3" step="1"/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="slds-col">
-                            <div class="slds-grid slds-grid_pull-padded-medium">
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <span>Restauration</span>
-                                </div>
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <div class="slds-form-element__control">
-                                        <div class="slds-slider">
-                                            <input type="range" id="slider-id-2" class="slds-slider__range" value="0" />
-                                        </div>
+                            <br>
+                            <div class="slds-col">
+                                <div class="slds-grid slds-grid_pull-padded-medium">
+                                    <div class="slds-col slds-p-horizontal_medium">
+                                        <span>Transfert</span>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slds-col">
-                            <div class="slds-grid slds-grid_pull-padded-medium">
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <span>Service / Accueil</span>
-                                </div>
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <div class="slds-form-element__control">
-                                        <div class="slds-slider">
-                                            <input type="range" id="slider-id-2" class="slds-slider__range" value="0" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slds-col">
-                            <div class="slds-grid slds-grid_pull-padded-medium">
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <span>Animation</span>
-                                </div>
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <div class="slds-form-element__control">
-                                        <div class="slds-slider">
-                                            <input type="range" id="slider-id-2" class="slds-slider__range" value="0" />
+                                    <div class="slds-col slds-p-horizontal_medium">
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-slider">
+                                                <input type="range" class="slds-slider__range" value="0" min="1" max="3" step="1"/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="slds-grid slds-grid_vertical">
-                        <div class="slds-col">
-                            <div class="slds-grid slds-grid_pull-padded-medium">
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <span>Excursions / Guide</span>
-                                </div>
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <div class="slds-form-element__control">
-                                        <div class="slds-slider">
-                                            <input type="range" id="slider-id-2" class="slds-slider__range" value="0" />
+                    <div class="slds-col">
+                        <div class="slds-grid slds-grid_vertical">
+                            <div class="slds-col">
+                                <div class="slds-grid slds-grid_pull-padded-medium">
+                                    <div class="slds-col slds-p-horizontal_medium">
+                                        <span>Transfert</span>
+                                    </div>
+                                    <div class="slds-col slds-p-horizontal_medium">
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-slider">
+                                                <input type="range" class="slds-slider__range" value="0" min="1" max="3" step="1"/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="slds-col">
-                            <div class="slds-grid slds-grid_pull-padded-medium">
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <span>Transport Aerien</span>
-                                </div>
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <div class="slds-form-element__control">
-                                        <div class="slds-slider">
-                                            <input type="range" id="slider-id-2" class="slds-slider__range" value="0" />
+                            <br>
+                            <div class="slds-col">
+                                <div class="slds-grid slds-grid_pull-padded-medium">
+                                    <div class="slds-col slds-p-horizontal_medium">
+                                        <span>Transfert</span>
+                                    </div>
+                                    <div class="slds-col slds-p-horizontal_medium">
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-slider">
+                                                <input type="range" class="slds-slider__range" value="0" min="1" max="3" step="1"/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="slds-col">
-                            <div class="slds-grid slds-grid_pull-padded-medium">
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <span>Transport Car</span>
-                                </div>
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <div class="slds-form-element__control">
-                                        <div class="slds-slider">
-                                            <input type="range" id="slider-id-2" class="slds-slider__range" value="0" />
-                                        </div>
+                            <br>
+                            <div class="slds-col">
+                                <div class="slds-grid slds-grid_pull-padded-medium">
+                                    <div class="slds-col slds-p-horizontal_medium">
+                                        <span>Transfert</span>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slds-col">
-                            <div class="slds-grid slds-grid_pull-padded-medium">
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <span>Thalasso / SPA</span>
-                                </div>
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <div class="slds-form-element__control">
-                                        <div class="slds-slider">
-                                            <input type="range" id="slider-id-2" class="slds-slider__range" value="0" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slds-col">
-                            <div class="slds-grid slds-grid_pull-padded-medium">
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <span>Croisière</span>
-                                </div>
-                                <div class="slds-col slds-p-horizontal_medium">
-                                    <div class="slds-form-element__control">
-                                        <div class="slds-slider">
-                                            <input type="range" id="slider-id-2" class="slds-slider__range" value="0" />
+                                    <div class="slds-col slds-p-horizontal_medium">
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-slider">
+                                                <input type="range" class="slds-slider__range" value="0" min="1" max="3" step="1"/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="slds-grid slds-grid_vertical">
-                        <div class="slds-col">
-                            <div class="slds-form-element">
-                                <label class="slds-form-element__label" for="description_model-travel">Points
-                                    positifs<abbr class="slds-required">*</abbr></label>
-                                <div class="slds-form-element__control">
-                                    <textarea name="description_model-travel" id="description_model-travel"
-                                        class="slds-textarea" style="height: 180px !important; resize: none;"
-                                        required><?= ($action == "add" ? "" : $data["DESCRIPTION"]) ?></textarea>
+                    <div class="slds-col">
+                        <div class="slds-grid slds-grid_vertical">
+                            <div class="slds-col">
+                                <div class="slds-form-element">
+                                    <label class="slds-form-element__label" for="description_model-travel">Points positifs<abbr class="slds-required">*</abbr></label>
+                                    <div class="slds-form-element__control">
+                                        <textarea name="description_model-travel" id="description_model-travel" class="slds-textarea" style="height: 100px !important; resize: none;" required></textarea>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="slds-col">
-                            <div class="slds-form-element">
-                                <label class="slds-form-element__label" for="description_model-travel">Points
-                                    positifs<abbr class="slds-required">*</abbr></label>
-                                <div class="slds-form-element__control">
-                                    <textarea name="description_model-travel" id="description_model-travel"
-                                        class="slds-textarea" style="height: 180px !important; resize: none;"
-                                        required><?= ($action == "add" ? "" : $data["DESCRIPTION"]) ?></textarea>
+                            <div class="slds-col">
+                                <div class="slds-form-element">
+                                    <label class="slds-form-element__label" for="description_model-travel">Points positifs<abbr class="slds-required">*</abbr></label>
+                                    <div class="slds-form-element__control">
+                                        <textarea name="description_model-travel" id="description_model-travel"
+                                            class="slds-textarea" style="height: 100px !important; resize: none;"
+                                            required></textarea>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <br>
-                <div class="slds-col">
-                    <div class="slds-grid slds-grid_vertical">
-                        <div class="slds-col">
-                            <div class="slds-clearfix">
-                                <div class="slds-float_right">
-                                    <a href="<?= url_to("reviewViewList") ?>"
-                                        class="slds-button slds-button_outline-brand">Annuler</a>
-                                    <input type="submit" class="slds-button slds-button_brand"
-                                        value="<?= ($action == "add" ? "Ajouter" : "Modifier") ?>">
-                                </div>
+            </div>
+            <br>
+            <div class="slds-col">
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                        <div class="slds-clearfix">
+                            <div class="slds-float_right">
+                                <a href="<?= url_to("reviewViewList") ?>" class="slds-button slds-button_outline-brand">Annuler</a>
+                                <input type="submit" class="slds-button slds-button_brand" value="<?= ($action == "add" ? "Ajouter" : "Modifier") ?>">
                             </div>
                         </div>
                     </div>
