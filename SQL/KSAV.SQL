@@ -3,6 +3,19 @@ DROP DATABASE IF EXISTS KSAV;
 CREATE DATABASE IF NOT EXISTS KSAV;
 USE KSAV;
 # -----------------------------------------------------------------------------
+#       TABLE : UTILISATEUR
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS UTILISATEUR
+ (
+   IDUTILISATEUR INTEGER(2) NOT NULL AUTO_INCREMENT ,
+   NOM VARCHAR(128) NULL  ,
+   MDP VARCHAR(255) NULL  
+   , PRIMARY KEY (IDUTILISATEUR) 
+ ) 
+ comment = "";
+
+# -----------------------------------------------------------------------------
 #       TABLE : AVIS
 # -----------------------------------------------------------------------------
 

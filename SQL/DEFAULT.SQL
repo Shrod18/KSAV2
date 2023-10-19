@@ -11,3 +11,4 @@ INSERT INTO prestation (LIBELLE, DESCRIPTION) VALUES ("TRANSFERT", ""),
     ("Transport car", ""),
     ("Thalasso/SPA", ""),
     ("Croisiere", "");
+INSERT INTO utilisateur (NOM, MDP) VALUES ("admin", "$2y$10$cKD52jszt5utE1ozipFsMOzbqRqYmjQCi0w1j/XIsdkylmrp7uZ82");

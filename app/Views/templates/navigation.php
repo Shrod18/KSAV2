@@ -31,8 +31,7 @@
                     <span class="slds-truncate">Accueil</span>
                 </a>
             </li>
-            <li
-                class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click <?= $page == "modelTravel" || $page == "instanceTravel" ? "slds-is-active" : "" ?>" onclick="toggleTravel(this)">
+            <li class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click <?= $page == "modelTravel" || $page == "instanceTravel" ? "slds-is-active" : "" ?>" onclick="toggleTravel(this)">
                 <a class="slds-context-bar__label-action">
                     <span class="slds-truncate">Voyages</span>
                 </a>
@@ -60,13 +59,13 @@
                     </ul>
                 </div>
             </li>
-            <li class="slds-context-bar__item">
-                <a href="<?= url_to("customerViewList") ?>" class="slds-context-bar__label-action <?= $page == "customers" ? "slds-is-active" : "" ?>" title="ReviewsCustomers">
+            <li class="slds-context-bar__item <?= $page == "customer" ? "slds-is-active" : "" ?>">
+                <a href="<?= url_to("customerViewList") ?>" class="slds-context-bar__label-action" title="ReviewsCustomers">
                     <span class="slds-truncate">Clients</span>
                 </a>
             </li>
-            <li class="slds-context-bar__item">
-                <a href="<?= url_to("reviewViewList") ?>" class="slds-context-bar__label-action <?= $page == "reviews" ? "slds-is-active" : "" ?>" title="ReviewsCustomers">
+            <li class="slds-context-bar__item <?= $page == "reviews" ? "slds-is-active" : "" ?>">
+                <a href="<?= url_to("reviewViewList") ?>" class="slds-context-bar__label-action" title="ReviewsCustomers">
                     <span class="slds-truncate">Avis</span>
                 </a>
             </li>

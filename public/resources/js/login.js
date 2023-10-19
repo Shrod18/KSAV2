@@ -1,0 +1,3 @@
+function closeError() {
+    $("#error").remove();
+}
