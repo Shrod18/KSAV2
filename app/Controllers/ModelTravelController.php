@@ -7,6 +7,7 @@ use App\Models\PossederModel;
 use App\Models\PrestationModel;
 use App\Models\TypeVoyageModel;
 use CodeIgniter\HTTP\RedirectResponse;
+use CodeIgniter\HTTP\ResponseInterface;
 
 class ModelTravelController extends BaseController
 {
@@ -168,6 +169,25 @@ class ModelTravelController extends BaseController
         $manager->delete($id);
 
         return redirect()->to(url_to("modelTravelList"));
+    }
+
+    /**
+     * Permet de récupérer les services d'un voyage
+     *
+     * @param integer $id
+     * @return void
+     */
+    public function getServices(int $id): ResponseInterface
+    {
+        $manager = new ModeleVoyageModel();
+        $builder = $manager->builder();
+        $builder->select("prestation.IDPRESTATION AS ID_PRESTATION, prestation.LIBELLE AS LIBELLE_PRESTATION");
+        $builder->join("posseder", "posseder.IDMODELEVOYAGE = modelevoyage.IDMODELEVOYAGE", "left");
+        $builder->join("prestation", "prestation.IDPRESTATION = posseder.IDPRESTATION", "left");
+        $builder->where("modelevoyage.IDMODELEVOYAGE", $id);
+        $services = $builder->get()->getResultArray();
+
+        return $this->response->setJSON($services);
     }
 
 }

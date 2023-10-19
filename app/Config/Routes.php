@@ -74,3 +74,11 @@ $routes->get("/", "HomeController::view", ["as" => "homeView", "filter" => "auth
 $routes->get("/login", "LoginController::view", ["as" => "loginView"]);
 $routes->post("/login", "LoginController::login", ["as" => "loginCheck"]);
 $routes->get("/logout", "LoginController::logout", ["as" => "loginLogout"]);
+
+/*
+ * Regroupement de routes pour les retours d'ajax 
+ */
+$routes->group("api", function (RouteCollection $routes) {
+    $routes->post("model-travel/(:num)/services", "ModelTravelController::getServices/$1");
+    $routes->post("travels/(:num)", "TravelController::getTravelsByID/$1");
+});

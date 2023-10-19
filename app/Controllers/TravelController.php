@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\VoyageModel;
 use App\Models\ModeleVoyageModel;
 use CodeIgniter\HTTP\RedirectResponse;
+use CodeIgniter\HTTP\ResponseInterface;
 
 class TravelController extends BaseController
 {
@@ -115,6 +116,20 @@ class TravelController extends BaseController
         $manager->delete($id);
 
         return redirect()->to(url_to("travelViewList"));
+    }
+
+    /**
+     * Fonction qui permet de récupérer les données d'un modèle de voyage
+     *
+     * @param integer $id
+     * @return ResponseInterface
+     */
+    public function getTravelsByID(int $id): ResponseInterface
+    {
+        $manager = new VoyageModel();
+        $travels = $manager->where("IDMODELEVOYAGE", $id)->findAll();
+
+        return $this->response->setJSON($travels);
     }
 
 }

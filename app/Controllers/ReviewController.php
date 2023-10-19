@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\AvisModel;
+use App\Models\ModeleVoyageModel;
 use App\Models\VoyageModel;
 use App\Models\ClientModel;
 use CodeIgniter\HTTP\RedirectResponse;
@@ -33,12 +34,8 @@ class ReviewController extends BaseController
      */
     public function viewAdd(): string
     {
-        $manager = new VoyageModel();
-        $builder = $manager->builder();
-        $builder->select("avis.IDRESERVATION AS ID_RESERVATION, modelevoyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, voyage.IDVOYAGE AS ID_VOYAGE, modelevoyage.NOM AS NOM_MODELEVOYAGE, voyage.DATEDEPART AS DATEDEPART_VOYAGE");
-        $builder->join("modelevoyage", "modelevoyage.IDMODELEVOYAGE = voyage.IDVOYAGE", "left");
-
-        $travels = $builder->get()->getResultArray();
+        $manager = new ModeleVoyageModel();
+        $travels = $manager->findAll();
 
         $manager = new ClientModel();
         $customers = $manager->findAll();
@@ -50,7 +47,6 @@ class ReviewController extends BaseController
             "customers" => $customers
         ]);
     }
-
 
     /**
      * Fonction qui permet d'ajouter un avis
