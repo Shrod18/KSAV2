@@ -31,7 +31,7 @@
                                     class="slds-required">*</abbr></label>
                             <div class="slds-form-element__control">
                                 <div class="slds-select_container">
-                                    <select class="slds-select" name="travel-review" id="travel-review" required>
+                                    <select class="slds-select" id="travel-review" required>
                                         <option value="">-- Sélectionner un voyage --</option>
                                         <?php
                                         foreach ($travels as $travel) {
@@ -49,7 +49,7 @@
                                     class="slds-required">*</abbr></label>
                             <div class="slds-form-element__control">
                                 <div class="slds-select_container">
-                                    <select class="slds-select" name="date_travel-review" id="date_travel-review"
+                                    <select class="slds-select" name="id_travel-review" id="date_travel-review"
                                         required>
                                         <option value="">-- Sélectionner une date --</option>
                                         <?php
@@ -73,7 +73,7 @@
                             <datalist id="list_client-review" name="client-review" required>
                                 <?php
                                 foreach ($customers as $customer) {
-                                    echo "<option value='" . $customer["IDCLIENT"] . "'>" . $customer["NOM"] . " " . $customer["PRENOM"] . "</option>";
+                                    echo "<option value='" . $customer["ID_CLIENT"] . "'>" . $customer["NOM"] . " " . $customer["PRENOM"] . "</option>";
                                 }
                                 ?>
                             </datalist>
@@ -244,17 +244,17 @@
                         <div class="slds-grid slds-grid_vertical">
                             <div class="slds-col">
                                 <div class="slds-form-element">
-                                    <label class="slds-form-element__label" for="description_model-travel">Points positifs<abbr class="slds-required">*</abbr></label>
+                                    <label class="slds-form-element__label" for="positifs-review">Points positifs<abbr class="slds-required">*</abbr></label>
                                     <div class="slds-form-element__control">
-                                        <textarea name="description_model-travel" id="description_model-travel" class="slds-textarea" style="height: 100px !important; resize: none;" required></textarea>
+                                        <textarea name="positifs-review" id="positifs-review" class="slds-textarea" style="height: 100px !important; resize: none;" required></textarea>
                                     </div>
                                 </div>
                             </div>
                             <div class="slds-col">
                                 <div class="slds-form-element">
-                                    <label class="slds-form-element__label" for="description_model-travel">Points positifs<abbr class="slds-required">*</abbr></label>
+                                    <label class="slds-form-element__label" for="negatifs-review">Points negatifs<abbr class="slds-required">*</abbr></label>
                                     <div class="slds-form-element__control">
-                                        <textarea name="description_model-travel" id="description_model-travel"
+                                        <textarea name="negatifs-review" id="negatifs-review"
                                             class="slds-textarea" style="height: 100px !important; resize: none;"
                                             required></textarea>
                                     </div>

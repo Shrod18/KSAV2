@@ -36,14 +36,14 @@ $(document).ready(function() {
         data: data,
         responsive: true,
         columns: [
-            { title: "Voyage", data: "ID_VOYAGE", render: function(data, type, row) {
-                return data + " - " + row["NOM_VOYAGE"]; 
-            }},
             { title: "N°Reservation", data: "ID_RESERVATION" },
-            { title: "Date Avis", data: "DATE_AVIS" },
+            { title: "Voyage", data: "ID_VOYAGE", render: function(data, type, row) {
+                return data + " - " + row["NOM_MODELEVOYAGE"]; 
+            }},
             { title: "Client", data: "ID_CLIENT", render: function(data, type, row) {
                 return data + " - " + row["NOM_CLIENT"] + row["PRENOM_CLIENT"] ; 
             }},
+            { title: "Date Avis", data: "DATE_AVIS" },
             { title: "Action", data: "ID_MODELEVOYAGE", render: function(data, type, row) {
                 return btnAction(data);
             }},

@@ -12,7 +12,12 @@ class ReviewController extends BaseController
     public function viewList(): string
     {
         $manager = new AvisModel();
-        $reviews = $manager->findAll();
+        $builder = $manager->builder();
+        $builder->select("avis.IDRESERVATION AS ID_RESERVATION, avis.DATEAVIS AS DATE_AVIS, client.IDCLIENT AS ID_CLIENT, client.NOM AS NOM_CLIENT, client.PRENOM AS PRENOM_CLIENT, voyage.IDVOYAGE AS ID_VOYAGE, voyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.NOM AS NOM_MODELEVOYAGE");
+        $builder->join("client", "client.IDCLIENT = avis.IDCLIENT", "left");
+        $builder->join("voyage", "voyage.IDVOYAGE = avis.IDVOYAGE", "left");
+        $builder->join("modelevoyage", "modelevoyage.IDMODELEVOYAGE = voyage.IDMODELEVOYAGE", "left");
+        $reviews = $builder->get()->getResultArray();
 
         return view("pages/review/list", [
             "page" => "review", 
@@ -30,7 +35,7 @@ class ReviewController extends BaseController
     {
         $manager = new VoyageModel();
         $builder = $manager->builder();
-        $builder->select("modelevoyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, voyage.IDVOYAGE AS ID_VOYAGE, modelevoyage.NOM AS NOM_MODELEVOYAGE, voyage.DATEDEPART AS DATEDEPART_VOYAGE");
+        $builder->select("avis.IDRESERVATION AS ID_RESERVATION, modelevoyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, voyage.IDVOYAGE AS ID_VOYAGE, modelevoyage.NOM AS NOM_MODELEVOYAGE, voyage.DATEDEPART AS DATEDEPART_VOYAGE");
         $builder->join("modelevoyage", "modelevoyage.IDMODELEVOYAGE = voyage.IDVOYAGE", "left");
 
         $travels = $builder->get()->getResultArray();
@@ -57,8 +62,21 @@ class ReviewController extends BaseController
         $manager = new AvisModel();
 
         $data = [
-            "IDMODELEVOYAGE" => intval($this->request->getPost("review")),
-            "DATEDEPART" => $this->request->getPost("date_travel-review")
+            "ID_RESERVATION" => intval($this->request->getPost("reservation-review")),
+            "ID_VOYAGE" => intval($this->request->getPost("id_travel-review")),
+            "ID_CLIENT" => intval($this->request->getPost("client-review")),
+            "TRANFERT" => $this->request->getPost("transfert-review"),
+            "HOTEL" => $this->request->getPost("hotel-review"),
+            "RESTAURATION" => $this->request->getPost("restauration-review"),
+            "SERVICEACCUEIL" => $this->request->getPost("service_accueil-review"),
+            "ANIMATION" => $this->request->getPost("animation-review"),
+            "EXCURSIONSGUIDE" => $this->request->getPost("excursions_guide-review"),
+            "TRANSPORTAERIEN" => $this->request->getPost("transport_aerien-review"),
+            "TRANSPORTCAR" => $this->request->getPost("transport_car-review"),
+            "THALASSOSPA" => $this->request->getPost("thalasso_spa-review"),
+            "CROISIERE" => $this->request->getPost("croisiere-review"),
+            "POSITIFS" => $this->request->getPost("positifs-review"),
+            "NEGATIF" => $this->request->getPost("negatifs-review")
         ];
 
         $manager->insert($data);
