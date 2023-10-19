@@ -2,12 +2,11 @@
 
 namespace App\Controllers;
 
+use App\Models\UtilisateurModel;
 use CodeIgniter\HTTP\RedirectResponse;
 
 class LoginController extends BaseController
 {
-    const LOGIN = "admin";
-    const PASSWORD = "admin";
 
     public function view(): string
     {
@@ -19,14 +18,27 @@ class LoginController extends BaseController
      */
     public function login(): RedirectResponse
     {
+        $manager = new UtilisateurModel();
+
         $login = $this->request->getPost("login");
         $password = $this->request->getPost("password");
 
-        if ($login == self::LOGIN && $password == self::PASSWORD) {
-            session()->set("isLoggedIn", true);
-            return redirect()->to(url_to("homeView"));
+        if (!empty($login) || !empty($password)) {
+            $user = $manager->where("NOM", $login)->first();
+            if (!empty($user)) {
+                if (password_verify($password, $user["MDP"])) {
+                    session()->set("isLoggedIn", true);
+                    return redirect()->to(url_to("homeView"));
+                } else {
+                    session()->setFlashdata("error", "Identifiants incorrects");
+                    return redirect()->to(url_to("loginView"));
+                }
+            } else {
+                session()->setFlashdata("error", "Identifiants incorrects");
+                return redirect()->to(url_to("loginView"));
+            }
         } else {
-            session()->setFlashdata("error", "Identifiants incorrects");
+            session()->setFlashdata("error", "Veuillez remplir tous les champs");
             return redirect()->to(url_to("loginView"));
         }
     }

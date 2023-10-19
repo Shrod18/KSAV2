@@ -11,12 +11,23 @@ class CustomerController extends BaseController
         $manager = new ClientModel();
         $customers = $manager->findAll();
 
-        return view("pages/customers/list", [ "page" => "customers", "customers" => $customers ]);
+        return view("pages/customer/list", [ 
+            "page" => "customer", 
+            "customers" => $customers 
+        ]);
     }
 
+    /**
+     * Permet d'afficher le formulaire d'ajout d'un client
+     *
+     * @return string
+     */
     public function viewAdd(): string
     {
-        return view("pages/customers/action", [ "page" => "customers", "action" => "add" ]);
+        return view("pages/customer/action", [ 
+            "page" => "customer", 
+            "action" => "add" 
+        ]);
     }
 
     /**
@@ -52,7 +63,7 @@ class CustomerController extends BaseController
         $manager = new ClientModel();
         $data = $manager->find($id);
 
-        return view("pages/customers/action", [
+        return view("pages/customer/action", [
             "page" => "customers",
             "action" => "edit",
             "id" => $id,
