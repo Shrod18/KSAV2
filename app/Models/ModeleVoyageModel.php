@@ -12,6 +12,6 @@ class ModeleVoyageModel extends Model
     protected $returnType = "array";
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ["IDMODELEVOYAGE", "IDTYPEVOYAGE", "NOM", "DESCRIPTION", "DESTINATION"];
+    protected $allowedFields = ["IDMODELEVOYAGE", "IDTYPEVOYAGE", "NOM", "DESCRIPTION", "DESTINATION", "TOUROPERATOR"];
 
 }

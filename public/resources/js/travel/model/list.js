@@ -50,6 +50,7 @@ $(document).ready(function() {
             { title: "Nom", data: "NOM_MODELEVOYAGE" },
             { title: "Description", data: "DESCRIPTION_MODELEVOYAGE" },
             { title: "Destination", data: "DESTINATION_MODELEVOYAGE" },
+            { title: "Tour opérateur", data: "TOUROPERATOR_MODELEVOYAGE" },
             { title: "Action", data: "ID_MODELEVOYAGE", render: function(data, type, row) {
                 return btnAction(data);
             }},

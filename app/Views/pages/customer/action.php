@@ -75,7 +75,7 @@
                 <div class="slds-col">
                     <div class="slds-clearfix">
                         <div class="slds-float_right">
-                            <a href="<?= url_to("travelViewList") ?>" class="slds-button slds-button_outline-brand">Annuler</a>
+                            <a href="<?= url_to("customerViewList") ?>" class="slds-button slds-button_outline-brand">Annuler</a>
                             <input type="submit" class="slds-button slds-button_brand" value="<?= ($action == "add" ? "Ajouter" : "Modifier") ?>">
                         </div>
                     </div>
