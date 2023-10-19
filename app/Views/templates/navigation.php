@@ -64,7 +64,7 @@
                     <span class="slds-truncate">Clients</span>
                 </a>
             </li>
-            <li class="slds-context-bar__item <?= $page == "reviews" ? "slds-is-active" : "" ?>">
+            <li class="slds-context-bar__item <?= $page == "review" ? "slds-is-active" : "" ?>">
                 <a href="<?= url_to("reviewViewList") ?>" class="slds-context-bar__label-action" title="ReviewsCustomers">
                     <span class="slds-truncate">Avis</span>
                 </a>

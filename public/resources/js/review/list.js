@@ -36,13 +36,14 @@ $(document).ready(function() {
         data: data,
         responsive: true,
         columns: [
-            { title: "ID", data: "ID_MODELEVOYAGE" },
-            { title: "ID type voyage", data: "ID_TYPEVOYAGE", render: function(data, type, row) {
-                return data + " - " + row["LIBELLE_TYPEVOYAGE"];
+            { title: "Voyage", data: "ID_VOYAGE", render: function(data, type, row) {
+                return data + " - " + row["NOM_VOYAGE"]; 
             }},
-            { title: "Nom", data: "NOM_MODELEVOYAGE" },
-            { title: "Description", data: "DESCRIPTION_MODELEVOYAGE" },
-            { title: "Destination", data: "DESTINATION_MODELEVOYAGE" },
+            { title: "N°Reservation", data: "ID_RESERVATION" },
+            { title: "Date Avis", data: "DATE_AVIS" },
+            { title: "Client", data: "ID_CLIENT", render: function(data, type, row) {
+                return data + " - " + row["NOM_CLIENT"] + row["PRENOM_CLIENT"] ; 
+            }},
             { title: "Action", data: "ID_MODELEVOYAGE", render: function(data, type, row) {
                 return btnAction(data);
             }},
