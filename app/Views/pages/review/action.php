@@ -83,7 +83,7 @@
             </div>
             <br>
             <div class="slds-col">
-                <div class="slds-grid slds-gutters" >
+                <div class="slds-grid slds-gutters" style="padding: 0 70px; gap: 300px;">
                     <div class="slds-grid slds-grid_vertical">
                         <div class="slds-col">
                             <div class="slds-grid slds-grid_pull-padded-medium">
@@ -229,7 +229,7 @@
                         </div>
                     </div>
                     <div class="slds-grid slds-grid_vertical">
-                    <div class="slds-col">
+                        <div class="slds-col">
                             <div class="slds-form-element">
                                 <label class="slds-form-element__label" for="description_model-travel">Points
                                     positifs<abbr class="slds-required">*</abbr></label>
@@ -243,7 +243,7 @@
                         <div class="slds-col">
                             <div class="slds-form-element">
                                 <label class="slds-form-element__label" for="description_model-travel">Points
-                                    Negatifs<abbr class="slds-required">*</abbr></label>
+                                    positifs<abbr class="slds-required">*</abbr></label>
                                 <div class="slds-form-element__control">
                                     <textarea name="description_model-travel" id="description_model-travel"
                                         class="slds-textarea" style="height: 180px !important; resize: none;"
