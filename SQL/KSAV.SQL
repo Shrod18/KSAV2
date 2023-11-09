@@ -22,46 +22,11 @@ CREATE TABLE IF NOT EXISTS UTILISATEUR
 CREATE TABLE IF NOT EXISTS AVIS
  (
    IDAVIS INTEGER(2) NOT NULL AUTO_INCREMENT ,
-   IDRESERVATION INTEGER(2) NOT NULL  ,
-   IDVOYAGE INTEGER(2) NOT NULL  ,
-   IDCLIENT INTEGER(2) NOT NULL  ,
-   TRANSFERT CHAR(32) NULL  
-      DEFAULT "N/A",
-   HOTEL CHAR(32) NULL  
-      DEFAULT "N/A",
-   RESTAURATION CHAR(32) NULL  
-      DEFAULT "N/A",
-   SERVICEACCUEIL CHAR(32) NULL  
-      DEFAULT "N/A",
-   ANIMATION CHAR(32) NULL  
-      DEFAULT "N/A",
-   EXCURSIONSGUIDE CHAR(32) NULL  
-      DEFAULT "N/A",
-   TRANSPORTAERIEN CHAR(32) NULL  
-      DEFAULT "N/A",
-   TRANSPORTCAR CHAR(32) NULL  
-      DEFAULT "N/A",
-   THALASSOSPA CHAR(32) NULL  
-      DEFAULT "N/A",
-   CROISIERE CHAR(32) NULL  
-      DEFAULT "N/A",
-   POSITIFS VARCHAR(255) NULL  ,
-   NEGATIF VARCHAR(255) NULL  ,
-   DATEAVIS DATE DEFAULT (CURRENT_DATE) NOT NULL
-   , PRIMARY KEY (IDAVIS,IDRESERVATION) 
+   POINTSNEGATIF VARCHAR(128) NULL  ,
+   POINTSPOSITIFS VARCHAR(128) NULL  
+   , PRIMARY KEY (IDAVIS) 
  ) 
  comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE AVIS
-# -----------------------------------------------------------------------------
-
-
-CREATE  INDEX I_FK_AVIS_VOYAGE
-     ON AVIS (IDVOYAGE ASC);
-
-CREATE  INDEX I_FK_AVIS_CLIENT
-     ON AVIS (IDCLIENT ASC);
 
 # -----------------------------------------------------------------------------
 #       TABLE : PRESTATION
@@ -104,6 +69,34 @@ CREATE TABLE IF NOT EXISTS TYPEVOYAGE
    , PRIMARY KEY (IDTYPEVOYAGE) 
  ) 
  comment = "";
+
+# -----------------------------------------------------------------------------
+#       TABLE : RESERVATION
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS RESERVATION
+ (
+   IDRESERVATION CHAR(32) NOT NULL  ,
+   IDVOYAGE INTEGER(2) NOT NULL  ,
+   IDCLIENT INTEGER(2) NOT NULL  ,
+   IDAVIS INTEGER(2) NOT NULL  
+   , PRIMARY KEY (IDRESERVATION) 
+ ) 
+ comment = "";
+
+# -----------------------------------------------------------------------------
+#       INDEX DE LA TABLE RESERVATION
+# -----------------------------------------------------------------------------
+
+
+CREATE  INDEX I_FK_RESERVATION_VOYAGE
+     ON RESERVATION (IDVOYAGE ASC);
+
+CREATE  INDEX I_FK_RESERVATION_CLIENT
+     ON RESERVATION (IDCLIENT ASC);
+
+CREATE  INDEX I_FK_RESERVATION_AVIS
+     ON RESERVATION (IDAVIS ASC);
 
 # -----------------------------------------------------------------------------
 #       TABLE : MODELEVOYAGE
@@ -173,20 +166,49 @@ CREATE  INDEX I_FK_POSSEDER_PRESTATION
 CREATE  INDEX I_FK_POSSEDER_MODELEVOYAGE
      ON POSSEDER (IDMODELEVOYAGE ASC);
 
+# -----------------------------------------------------------------------------
+#       TABLE : NOTE
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS NOTE
+ (
+   IDPRESTATION INTEGER(2) NOT NULL  ,
+   IDAVIS INTEGER(2) NOT NULL  ,
+   NOTE CHAR(32) NULL  
+   , PRIMARY KEY (IDPRESTATION,IDAVIS) 
+ ) 
+ comment = "";
+
+# -----------------------------------------------------------------------------
+#       INDEX DE LA TABLE NOTE
+# -----------------------------------------------------------------------------
+
+
+CREATE  INDEX I_FK_NOTE_PRESTATION
+     ON NOTE (IDPRESTATION ASC);
+
+CREATE  INDEX I_FK_NOTE_AVIS
+     ON NOTE (IDAVIS ASC);
+
 
 # -----------------------------------------------------------------------------
 #       CREATION DES REFERENCES DE TABLE
 # -----------------------------------------------------------------------------
 
 
-ALTER TABLE AVIS 
-  ADD FOREIGN KEY FK_AVIS_VOYAGE (IDVOYAGE)
+ALTER TABLE RESERVATION 
+  ADD FOREIGN KEY FK_RESERVATION_VOYAGE (IDVOYAGE)
       REFERENCES VOYAGE (IDVOYAGE) ;
 
 
-ALTER TABLE AVIS 
-  ADD FOREIGN KEY FK_AVIS_CLIENT (IDCLIENT)
+ALTER TABLE RESERVATION 
+  ADD FOREIGN KEY FK_RESERVATION_CLIENT (IDCLIENT)
       REFERENCES CLIENT (IDCLIENT) ;
+
+
+ALTER TABLE RESERVATION 
+  ADD FOREIGN KEY FK_RESERVATION_AVIS (IDAVIS)
+      REFERENCES AVIS (IDAVIS) ;
 
 
 ALTER TABLE MODELEVOYAGE 
@@ -207,4 +229,14 @@ ALTER TABLE POSSEDER
 ALTER TABLE POSSEDER 
   ADD FOREIGN KEY FK_POSSEDER_MODELEVOYAGE (IDMODELEVOYAGE)
       REFERENCES MODELEVOYAGE (IDMODELEVOYAGE) ;
+
+
+ALTER TABLE NOTE 
+  ADD FOREIGN KEY FK_NOTE_PRESTATION (IDPRESTATION)
+      REFERENCES PRESTATION (IDPRESTATION) ;
+
+
+ALTER TABLE NOTE 
+  ADD FOREIGN KEY FK_NOTE_AVIS (IDAVIS)
+      REFERENCES AVIS (IDAVIS) ;
 
