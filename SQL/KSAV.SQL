@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS MLR2;
+DROP DATABASE IF EXISTS KSAV;
 
-CREATE DATABASE IF NOT EXISTS MLR2;
-USE MLR2;
+CREATE DATABASE IF NOT EXISTS KSAV;
+USE KSAV;
 # -----------------------------------------------------------------------------
 #       TABLE : UTILISATEUR
 # -----------------------------------------------------------------------------
