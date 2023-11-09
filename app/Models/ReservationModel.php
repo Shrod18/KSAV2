@@ -4,14 +4,14 @@ namespace App\Models;
 use CodeIgniter\Database\ConnectionInterface;
 use CodeIgniter\Model;
 
-class AvisModel extends Model
+class ReservationModel extends Model
 {
     protected $table = "avis";
-    protected $primaryKey = "IDAVIS";
+    protected $primaryKey = "IDRESERVATION";
 
     protected $returnType = "array";
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ["IDAVIS", "POINTSPOSITIFS", "POINTSNEGATIFS", "DATEAVIS"];
+    protected $allowedFields = ["IDRESERVATION", "IDVOYAGE", "IDCLIENT", "IDAVIS"];
 
 }

@@ -4,7 +4,7 @@ namespace App\Models;
 use CodeIgniter\Database\ConnectionInterface;
 use CodeIgniter\Model;
 
-class AvisModel extends Model
+class NoteModel extends Model
 {
     protected $table = "avis";
     protected $primaryKey = "IDAVIS";
@@ -12,6 +12,6 @@ class AvisModel extends Model
     protected $returnType = "array";
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ["IDAVIS", "POINTSPOSITIFS", "POINTSNEGATIFS", "DATEAVIS"];
+    protected $allowedFields = ["IDPRESTATION", "IDAVIS", "NOTE"];
 
 }
