@@ -39,7 +39,6 @@ function setReviewsInputs(id) {
                     "</div>";
         });
         $("#inputs-review").html(inputs);
-            
     } else {
         $("#inputs-review").html("");
     }

@@ -94,5 +94,27 @@ class ReviewController extends BaseController
         return redirect()->to(url_to("reviewViewList"));
     }
 
+    /**
+     * Fonction que retourne la vue des details de l'avis utilisateur
+     * 
+     * @param int $id
+     * @return string
+     */
+    public function viewDetails(int $id): string
+    {       
+        $manager = new AvisModel();
+        $builder = $manager->builder();
+        $builder->select("reservation.IDRESERVATION AS ID_RESERVATION, reservation.IDVOYAGE AS ID_VOYAGE, reservation.IDCLIENT AS ID_CLIENT, avis.IDAVIS AS ID_AVIS, avis.POINTSPOSITIFS AS AVIS_POINTSPOSITIFS, avis.POINTSNEGATIFS AS AVIS_POINTSNEGATIFS, avis.DATEAVIS AS DATE_AVIS");
+        $builder->join("reservation", "reservation.IDAVIS = avis.IDAVIS");
+        $review = $builder->get()->getResultArray();
+
+        $manager = new NoteModel();
+        $notes = $manager->where("IDAVIS", $id)->findAll();
+
+        return view("pages/review/action", [ 
+            "page" => "review", 
+            "review" => $review 
+        ]);
+    }
 }
 

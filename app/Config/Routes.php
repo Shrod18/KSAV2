@@ -66,7 +66,7 @@ $routes->group("reviews", ["filter" => "authguard"], function (RouteCollection $
     $routes->get("add", "ReviewController::viewAdd", ["as" => "reviewViewAdd"]);
     $routes->post("add", "ReviewController::add", ["as" => "reviewAdd"]);
 
-    $routes->get("(:num)", "ReviewController::viewDetail/$1", ["as" => "reviewViewDetail"]);
+    $routes->get("(:num)", "ReviewController::viewDetails/$1", ["as" => "reviewViewDetails"]);
 });
 
 $routes->get("/", "HomeController::view", ["as" => "homeView", "filter" => "authguard"]);
