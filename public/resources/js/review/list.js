@@ -41,7 +41,7 @@ $(document).ready(function() {
                 return data + " - " + row["NOM_MODELEVOYAGE"]; 
             }},
             { title: "Client", data: "ID_CLIENT", render: function(data, type, row) {
-                return data + " - " + row["NOM_CLIENT"] + row["PRENOM_CLIENT"] ; 
+                return data + " - " + row["NOM_CLIENT"] + " " +  row["PRENOM_CLIENT"] ; 
             }},
             { title: "Date Avis", data: "DATE_AVIS" },
             { title: "Action", data: "ID_MODELEVOYAGE", render: function(data, type, row) {

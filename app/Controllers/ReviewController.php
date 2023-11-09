@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\NoteModel;
 use App\Models\ReservationModel;
 use App\Models\AvisModel;
 use App\Models\ModeleVoyageModel;
@@ -57,39 +58,38 @@ class ReviewController extends BaseController
      */
     public function add(): RedirectResponse
     {
-        $columns = [
-            1 => "TRANSFERT",
-            2=> "HOTEL",
-            3 => "RESTAURATION",
-            4 => "SERVICEACCUEIL",
-            5 => "ANIMATION",
-            6 => "EXCURSIONSGUIDE",
-            7 => "TRANSPORTAERIEN",
-            8 => "TRANSPORTCAR",
-            9 => "THALASSOSPA",
-            10 => "CROISIERE"
-        ];
-
-        $manager = new ModeleVoyageModel();
-        $services = $manager->getServices(intval($this->request->getPost("travel-review")));
-
         $manager = new AvisModel();
-
         $data = [
-            "IDRESERVATION" => intval($this->request->getPost("reservation-review")),
-            "IDVOYAGE" => intval($this->request->getPost("id_travel-review")),
-            "IDCLIENT" => intval($this->request->getPost("client-review")),
-            "POSITIFS" => $this->request->getPost("positifs-review"),
-            "NEGATIFS" => $this->request->getPost("negatifs-review")
+            "POINTSPOSITIFS" => $this->request->getPost("positifs-review"),
+            "POINTSNEGATIFS" => $this->request->getPost("negatifs-review"),
+            "DATEAVIS" => date("Y-m-d")
         ];
+        $manager->insert($data);
 
-        if ($services != null || $services != []) {
-            foreach ($services as $service) {
-                $data[$columns[$service["ID_PRESTATION"]]] = intval($this->request->getPost("input_" . $service["ID_PRESTATION"] + "-review"));
+        $id = $manager->getInsertID();
+
+        $manager = new ReservationModel();
+        $data = [
+            "IDRESERVATION" => $this->request->getPost("reservation-review"),
+            "IDVOYAGE" => $this->request->getPost("id_travel-review"),
+            "IDCLIENT" => $this->request->getPost("client-review"),
+            "IDAVIS" => $id
+        ];
+        $manager->insert($data);
+
+        $manager = new NoteModel();
+        $data = [];
+        foreach ($this->request->getPost() as $key => $value) {
+            if (str_contains($key, "note_")) {
+                $service = explode("*", $key)[1];
+                $data[] = [
+                    "IDPRESTATION" => $service,
+                    "IDAVIS" => $id,
+                    "NOTE" => $value
+                ];
             }
         }
-
-        $manager->insert($data);
+        $manager->insertBatch($data);
 
         return redirect()->to(url_to("reviewViewList"));
     }

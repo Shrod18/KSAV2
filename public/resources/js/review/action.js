@@ -34,7 +34,7 @@ function setReviewsInputs(id) {
                     "<span>" + service["LIBELLE_PRESTATION"] + "</span>" +
                     "</div>" +
                     "<div style='width: 300px'>" +
-                    "<input name='input_" + service["ID_PRESTATION"] + "-review' type='range' class='slds-slider__range' value='0' min='1' max='3' step='1' style='width: 100%;'/>" +
+                    "<input name='note_*" + service["ID_PRESTATION"] + "*-review' type='range' class='slds-slider__range' value='0' min='1' max='3' step='1' style='width: 100%;'/>" +
                     "</div>" +
                     "</div>";
         });

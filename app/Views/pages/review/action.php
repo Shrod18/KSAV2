@@ -70,7 +70,7 @@
                             <datalist id="list_client-review" name="client-review" required>
                                 <?php
                                 foreach ($customers as $customer) {
-                                    echo "<option value='" . $customer["ID_CLIENT"] . "'>" . $customer["NOM"] . " " . $customer["PRENOM"] . "</option>";
+                                    echo "<option value='" . $customer["IDCLIENT"] . "'>" . $customer["NOM"] . " " . $customer["PRENOM"] . "</option>";
                                 }
                                 ?>
                             </datalist>
