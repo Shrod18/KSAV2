@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\ReservationModel;
+use App\Models\AvisModel;
 use App\Models\ModeleVoyageModel;
 use App\Models\VoyageModel;
 use App\Models\ClientModel;
