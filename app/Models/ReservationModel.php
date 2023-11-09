@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class ReservationModel extends Model
 {
-    protected $table = "avis";
+    protected $table = "reservation";
     protected $primaryKey = "IDRESERVATION";
 
     protected $returnType = "array";
