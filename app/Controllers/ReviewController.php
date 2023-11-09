@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\AvisModel;
+use App\Models\ReservationModel;
 use App\Models\ModeleVoyageModel;
 use App\Models\VoyageModel;
 use App\Models\ClientModel;
@@ -12,12 +12,13 @@ class ReviewController extends BaseController
 {
     public function viewList(): string
     {
-        $manager = new AvisModel();
+        $manager = new ReservationModel();
         $builder = $manager->builder();
-        $builder->select("avis.IDRESERVATION AS ID_RESERVATION, avis.DATEAVIS AS DATE_AVIS, client.IDCLIENT AS ID_CLIENT, client.NOM AS NOM_CLIENT, client.PRENOM AS PRENOM_CLIENT, voyage.IDVOYAGE AS ID_VOYAGE, voyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.NOM AS NOM_MODELEVOYAGE");
-        $builder->join("client", "client.IDCLIENT = avis.IDCLIENT", "left");
-        $builder->join("voyage", "voyage.IDVOYAGE = avis.IDVOYAGE", "left");
-        $builder->join("modelevoyage", "modelevoyage.IDMODELEVOYAGE = voyage.IDMODELEVOYAGE", "left");
+        $builder->select("reservation.IDRESERVATION AS ID_RESERVATION, avis.DATEAVIS AS DATE_AVIS, client.IDCLIENT AS ID_CLIENT, client.NOM AS NOM_CLIENT, client.PRENOM AS PRENOM_CLIENT, voyage.IDVOYAGE AS ID_VOYAGE, voyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.NOM AS NOM_MODELEVOYAGE");
+        $builder->join("avis", "avis.IDAVIS = reservation.IDAVIS", "right");
+        $builder->join("client ", "client.IDCLIENT = reservation.IDCLIENT");
+        $builder->join("voyage  ", "voyage.IDVOYAGE = reservation.IDVOYAGE");
+        $builder->join("modelevoyage", "modelevoyage.IDMODELEVOYAGE = voyage.IDMODELEVOYAGE");
         $reviews = $builder->get()->getResultArray();
 
         return view("pages/review/list", [
