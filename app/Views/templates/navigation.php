@@ -53,7 +53,7 @@
                         </li>
                         <li class="slds-dropdown__item" role="presentation">
                             <a href="<?= url_to("travelViewList") ?>" role="menuitem" tabindex="-1">
-                                <span class="slds-truncate">Instance de Voyages</span>
+                                <span class="slds-truncate">Voyages</span>
                             </a>
                         </li>
                     </ul>

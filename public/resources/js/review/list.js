@@ -45,7 +45,9 @@ $(document).ready(function() {
             { title: "Client", data: "ID_CLIENT", render: function(data, type, row) {
                 return data + " - " + row["NOM_CLIENT"] + " " +  row["PRENOM_CLIENT"] ; 
             }},
-            { title: "Date Avis", data: "DATE_AVIS" },
+            { title: "Date Avis", data: "DATE_AVIS", render: function(data, type, row) {
+                return dateToFrench(data);
+            }},
             { title: "Action", data: "ID_AVIS", render: function(data, type, row) {
                 return btnAction(data);
             }},

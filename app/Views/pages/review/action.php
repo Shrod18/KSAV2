@@ -33,7 +33,7 @@
                     </div>
                     <div class="slds-col">
                         <div class="slds-form-element">
-                            <label class="slds-form-element__label" for="travel-review">Voyage<abbr
+                            <label class="slds-form-element__label" for="travel-review">Modèle Voyage<abbr
                                     class="slds-required">*</abbr></label>
                             <div class="slds-form-element__control">
                                 <div class="slds-select_container">
