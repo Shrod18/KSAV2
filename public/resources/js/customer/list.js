@@ -1,10 +1,3 @@
-function toggleMenu(element) {
-    let parent = element.parentElement;
-    parent.classList.toggle("slds-is-open");
-    let open = parent.classList.contains("slds-is-open");
-    element.innerHTML = element.innerHTML.replace(open ? "down" : "up", open ? "up" : "down");
-}
-
 $(document).ready(function() {
 
     const btnAction = (id) => {
