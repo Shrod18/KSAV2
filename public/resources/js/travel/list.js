@@ -51,7 +51,9 @@ $(document).ready(function() {
                 return data + " - " + row.LIBELLE_TYPEVOYAGE;
             }},
             { title: "Destination", data: "DESTINATION_MODELEVOYAGE" },
-            { title: "Date de départ", data: "DATEDEPART_VOYAGE" },
+            { title: "Date de départ", data: "DATEDEPART_VOYAGE", render: function(data, type, row) {
+                return dateToFrench(data);
+            }},
             { title: "Description", data: "DESCRIPTION_MODELEVOYAGE" },
             { title: "Action", data: "ID_VOYAGE", render: function(data, type, row) {
                 return btnAction(data);
