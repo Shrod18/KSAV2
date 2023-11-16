@@ -1,3 +1,10 @@
+function toggleMenu(element) {
+    let parent = element.parentElement;
+    parent.classList.toggle("slds-is-open");
+    let open = parent.classList.contains("slds-is-open");
+    element.innerHTML = element.innerHTML.replace(open ? "down" : "up", open ? "up" : "down");
+}
+
 $(document).ready(function() {
 
     const btnAction = (id) => {
@@ -11,13 +18,8 @@ $(document).ready(function() {
                     "<div class='slds-dropdown slds-dropdown_left'>" +
                     "<ul class='slds-dropdown__list' role='menu' aria-label='Show More'>" +
                     "<li class='slds-dropdown__item' role='presentation'>" +
-                    "<a href='/review/" + id + "' role='menuitem' tabindex='0'>" +
+                    "<a href='/reviews/" + id + "' role='menuitem' tabindex='0'>" +
                     "<span class='slds-truncate'>Visualiser</span>" +
-                    "</a>" +
-                    "</li>" +
-                    "<li class='slds-dropdown__item' role='presentation'>" +
-                    "<a href='/review/" + id + "/delete' role='menuitem' tabindex='-1'>" +
-                    "<span class='slds-truncate'>Supprimer</span>" +
                     "</a>" +
                     "</li>" +
                     "</ul>" +
@@ -44,7 +46,7 @@ $(document).ready(function() {
                 return data + " - " + row["NOM_CLIENT"] + " " +  row["PRENOM_CLIENT"] ; 
             }},
             { title: "Date Avis", data: "DATE_AVIS" },
-            { title: "Action", data: "ID_MODELEVOYAGE", render: function(data, type, row) {
+            { title: "Action", data: "ID_AVIS", render: function(data, type, row) {
                 return btnAction(data);
             }},
         ]

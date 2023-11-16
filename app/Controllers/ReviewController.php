@@ -16,7 +16,7 @@ class ReviewController extends BaseController
     {
         $manager = new ReservationModel();
         $builder = $manager->builder();
-        $builder->select("reservation.IDRESERVATION AS ID_RESERVATION, avis.DATEAVIS AS DATE_AVIS, client.IDCLIENT AS ID_CLIENT, client.NOM AS NOM_CLIENT, client.PRENOM AS PRENOM_CLIENT, voyage.IDVOYAGE AS ID_VOYAGE, voyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.NOM AS NOM_MODELEVOYAGE");
+        $builder->select("reservation.IDRESERVATION AS ID_RESERVATION, avis.DATEAVIS AS DATE_AVIS, client.IDCLIENT AS ID_CLIENT, client.NOM AS NOM_CLIENT, client.PRENOM AS PRENOM_CLIENT, voyage.IDVOYAGE AS ID_VOYAGE, voyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.NOM AS NOM_MODELEVOYAGE, avis.IDAVIS AS ID_AVIS");
         $builder->join("avis", "avis.IDAVIS = reservation.IDAVIS", "right");
         $builder->join("client ", "client.IDCLIENT = reservation.IDCLIENT");
         $builder->join("voyage  ", "voyage.IDVOYAGE = reservation.IDVOYAGE");
@@ -95,7 +95,7 @@ class ReviewController extends BaseController
     }
 
     /**
-     * Fonction que retourne la vue des details de l'avis utilisateur
+     * Fonction qui retourne la vue des details de l'avis utilisateur
      * 
      * @param int $id
      * @return string
@@ -104,16 +104,27 @@ class ReviewController extends BaseController
     {       
         $manager = new AvisModel();
         $builder = $manager->builder();
-        $builder->select("reservation.IDRESERVATION AS ID_RESERVATION, reservation.IDVOYAGE AS ID_VOYAGE, reservation.IDCLIENT AS ID_CLIENT, avis.IDAVIS AS ID_AVIS, avis.POINTSPOSITIFS AS AVIS_POINTSPOSITIFS, avis.POINTSNEGATIFS AS AVIS_POINTSNEGATIFS, avis.DATEAVIS AS DATE_AVIS");
+        $builder->select("reservation.IDRESERVATION AS ID_RESERVATION, reservation.IDVOYAGE AS ID_VOYAGE, reservation.IDCLIENT AS ID_CLIENT, avis.IDAVIS AS ID_AVIS, avis.POINTSPOSITIFS AS AVIS_POINTSPOSITIFS, avis.POINTSNEGATIFS AS AVIS_POINTSNEGATIFS, avis.DATEAVIS AS DATE_AVIS, client.NOM AS CLIENT_NOM, client.PRENOM AS CLIENT_PRENOM, voyage.DATEDEPART AS DATE_DEPART, modelevoyage.NOM AS MODELEVOYAGE_NOM");
         $builder->join("reservation", "reservation.IDAVIS = avis.IDAVIS");
-        $review = $builder->get()->getResultArray();
+        $builder->join("client", "client.IDCLIENT = reservation.IDCLIENT");
+        $builder->join("voyage","voyage.IDVOYAGE = reservation.IDVOYAGE");
+        $builder->join("modelevoyage","modelevoyage.IDMODELEVOYAGE = modelevoyage.IDMODELEVOYAGE");
+        $builder->where("avis.IDAVIS", $id);
+        $review = $builder->get()->getResultArray()[0];
 
         $manager = new NoteModel();
-        $notes = $manager->where("IDAVIS", $id)->findAll();
+        $builder = $manager->builder();
+        $builder->select("note.NOTE AS NOTE_NOTE, prestation.LIBELLE AS PRESTATION_LIBELLE");
+        $builder->join("prestation","prestation.IDPRESTATION = note.IDPRESTATION");
+        $builder->where("note.IDAVIS", $id);
+        $notes = $builder->get()->getResultArray();
 
         return view("pages/review/action", [ 
             "page" => "review", 
-            "review" => $review 
+            "action" => "view",
+            "review" => $review, 
+            "notes" => $notes,
+            "id" => $id
         ]);
     }
 }
