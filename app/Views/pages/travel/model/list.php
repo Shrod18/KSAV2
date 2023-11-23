@@ -2,13 +2,15 @@
 
 <?= $this->section("assets") ?>
     <script src="<?= base_url("resources/js/travel/model/list.js") ?>"></script>
+
+    <script>
+        const data = <?= json_encode($models) ?>;
+    </script>
 <?= $this->endSection() ?>
 
 <?= $this->section("main") ?>
 
     <?= $this->include("templates/navigation") ?>
-
-    <div id="data" style="display: none;"><?= json_encode($models) ?></div>
 
     <div class="slds-box" style="width: 95% !important; background-color: white; margin: auto; margin-top: 20px;">
         <div style="display: flex; flex-direction: row; justify-content: space-between;">

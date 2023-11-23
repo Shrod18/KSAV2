@@ -40,11 +40,11 @@ class CustomerController extends BaseController
         $manager = new ClientModel();
 
         $data = [
-            "NOM" => $this->request->getPost("lastname_customer"),
-            "PRENOM" => $this->request->getPost("firstname_customer"),
-            "ADRESSE" => $this->request->getPost("address_customer"),
-            "EMAIL" => $this->request->getPost("email_customer"),
-            "TEL" => $this->request->getPost("phone_customer")
+            "NOM" => str_replace(" ", "", $this->request->getPost("lastname_customer")),
+            "PRENOM" => str_replace(" ", "", $this->request->getPost("firstname_customer")),
+            "ADRESSE" => trim($this->request->getPost("address_customer")),
+            "EMAIL" => str_replace(" ", "", $this->request->getPost("email_customer")),
+            "TEL" => str_replace(" ", "", $this->request->getPost("phone_customer"))
         ];
 
         $manager->insert($data);
@@ -82,11 +82,11 @@ class CustomerController extends BaseController
         $manager = new ClientModel();
 
         $data = [
-            "NOM" => $this->request->getPost("lastname_customer"),
-            "PRENOM" => $this->request->getPost("firstname_customer"),
-            "ADRESSE" => $this->request->getPost("address_customer"),
-            "EMAIL" => $this->request->getPost("email_customer"),
-            "TEL" => $this->request->getPost("phone_customer")
+            "NOM" => str_replace(" ", "", $this->request->getPost("lastname_customer")),
+            "PRENOM" => str_replace(" ", "", $this->request->getPost("firstname_customer")),
+            "ADRESSE" => trim($this->request->getPost("address_customer")),
+            "EMAIL" => str_replace(" ", "", $this->request->getPost("email_customer")),
+            "TEL" => str_replace(" ", "", $this->request->getPost("phone_customer"))
         ];
 
         $manager->update($id, $data);

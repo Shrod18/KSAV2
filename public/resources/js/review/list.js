@@ -21,9 +21,6 @@ $(document).ready(function() {
         return html;
     }
 
-    const data = JSON.parse(document.getElementById("data").innerText);
-    document.getElementById("data").remove();
-
     $("#review-datatable").DataTable({
         language: {
             url: "/resources/libs/datatables/French.json"

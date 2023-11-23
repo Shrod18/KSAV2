@@ -19,3 +19,18 @@ function toggleMenu(element) {
     let open = parent.classList.contains("slds-is-open");
     element.innerHTML = element.innerHTML.replace(open ? "down" : "up", open ? "up" : "down");
 }
+
+/**
+ * Fonction permettant 
+ * 
+ * @param {*} spaces 
+ * @param {*} text 
+ * @returns String
+ */
+function setSpaceText(spaces, text) {
+    let result = "";
+    for (let i = 0; i < text.length; i++) {
+        result += (spaces.includes(i) ? (" " + text[i]) : text[i]);
+    }
+    return result
+}

@@ -2,6 +2,10 @@
 
 <?= $this->section("assets") ?>
     <script src="<?= base_url("resources/js/review/list.js") ?>"></script>
+
+    <script>
+        const data = <?= json_encode($reviews) ?>;
+    </script>
 <?= $this->endSection() ?>
 
 <?= $this->section("main") ?>

@@ -27,7 +27,6 @@ class ReviewController extends BaseController
             "page" => "review", 
             "reviews" => $reviews
         ]);
-
     }
 
     /**
@@ -60,8 +59,8 @@ class ReviewController extends BaseController
     {
         $manager = new AvisModel();
         $data = [
-            "POINTSPOSITIFS" => $this->request->getPost("positifs-review"),
-            "POINTSNEGATIFS" => $this->request->getPost("negatifs-review"),
+            "POINTSPOSITIFS" => trim($this->request->getPost("positifs-review")),
+            "POINTSNEGATIFS" => trim($this->request->getPost("negatifs-review")),
             "DATEAVIS" => date("Y-m-d")
         ];
         $manager->insert($data);
@@ -70,9 +69,9 @@ class ReviewController extends BaseController
 
         $manager = new ReservationModel();
         $data = [
-            "IDRESERVATION" => $this->request->getPost("reservation-review"),
+            "IDRESERVATION" => str_replace(" ", "", $this->request->getPost("reservation-review")),
             "IDVOYAGE" => $this->request->getPost("id_travel-review"),
-            "IDCLIENT" => $this->request->getPost("client-review"),
+            "IDCLIENT" => str_replace(" ", "", $this->request->getPost("client-review")),
             "IDAVIS" => $id
         ];
         $manager->insert($data);

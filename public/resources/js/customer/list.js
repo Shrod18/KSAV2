@@ -26,9 +26,6 @@ $(document).ready(function() {
         return html;
     }
 
-    const data = JSON.parse(document.getElementById("data").innerText);
-    document.getElementById("data").remove();
-
     $("#customer-datatable").DataTable({
         language: {
             url: "/resources/libs/datatables/French.json"
@@ -41,7 +38,9 @@ $(document).ready(function() {
             { title: "Prenom", data: "PRENOM" },
             { title: "Adresse", data: "ADRESSE" },
             { title: "Email", data: "EMAIL" },
-            { title: "Telephone", data: "TEL" },
+            { title: "Telephone", data: "TEL", render: function(data, type, row) {
+                return setSpaceText([2, 4, 6, 8, 10], data);
+            }},
             { title: "Action", data: "IDCLIENT", render: function(data, type, row) {
                 return btnAction(data);
             }},
