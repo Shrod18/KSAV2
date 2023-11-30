@@ -80,4 +80,4 @@ INSERT INTO `note` (`IDPRESTATION`, `IDAVIS`, `NOTE`) VALUES
 (2, 6, '1'),
 (3, 6, '3'),
 (6, 6, '3'),
-(10, 6, '2');
+(10, 6, '2'); 
