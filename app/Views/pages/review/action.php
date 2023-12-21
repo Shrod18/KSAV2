@@ -3,6 +3,10 @@
 <?= $this->section("assets") ?>
 <link rel="stylesheet" href="<?= base_url("resources/css/review/action.css") ?>">
 <script src="<?= base_url("resources/js/review/action.js") ?>"></script>
+
+<script>
+    const error = "<?= session()->getFlashdata("error") ?>";
+</script>
 <?= $this->endSection() ?>
 
 <?= $this->section("main") ?>

@@ -84,13 +84,12 @@ class ReviewController extends BaseController
             "IDAVIS" => $id
         ];
         
-        if (strlen("IDRESERVATION") < 5) {            
-            session()->setFlashdata("error", "IDReservation inférieur à 5 caractères");
-            return redirect()->to(url_to("customerViewAdd"));
+        if (strlen($data["IDRESERVATION"]) < 5) {            
+            session()->setFlashdata("error", "N°Réservation inférieur à 5 caractères");
+            return redirect()->to(url_to("reviewViewAdd"));
         }
-        else {
-            $manager->insert($data);
-        }
+        
+        $manager->insert($data);
         
         $manager = new NoteModel();
         $data = [];
