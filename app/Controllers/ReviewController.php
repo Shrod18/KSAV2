@@ -74,8 +74,15 @@ class ReviewController extends BaseController
             "IDCLIENT" => str_replace(" ", "", $this->request->getPost("client-review")),
             "IDAVIS" => $id
         ];
-        $manager->insert($data);
-
+        
+        if (strlen("IDRESERVATION") < 5) {            
+            session()->setFlashdata("error", "IDReservation inférieur à 5 caractères");
+            return redirect()->to(url_to("customerViewAdd"));
+        }
+        else {
+            $manager->insert($data);
+        }
+        
         $manager = new NoteModel();
         $data = [];
         foreach ($this->request->getPost() as $key => $value) {
