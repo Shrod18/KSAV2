@@ -23,9 +23,18 @@ class ReviewController extends BaseController
         $builder->join("modelevoyage", "modelevoyage.IDMODELEVOYAGE = voyage.IDMODELEVOYAGE");
         $reviews = $builder->get()->getResultArray();
 
+        $manager = new VoyageModel();
+        $travels = $manager->findAll();
+        $canAdd = count($travels) > 0;
+
+        $manager = new ClientModel();
+        $customers = $manager->findAll();
+        $canAdd = $canAdd && (count($customers) > 0);
+
         return view("pages/review/list", [
             "page" => "review", 
-            "reviews" => $reviews
+            "reviews" => $reviews,
+            "canAdd" => $canAdd
         ]);
     }
 
