@@ -13,7 +13,7 @@ class LoginController extends BaseController
         return view("pages/login");
     }
 
-    /**
+    /** 
      * Fonction de connexion à l'application (POST)
      */
     public function login(): RedirectResponse
