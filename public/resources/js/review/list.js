@@ -38,7 +38,7 @@ $(document).ready(function() {
             { title: "Date Avis", data: "DATE_AVIS", render: function(data, type, row) {
                 return dateToFrench(data);
             }},
-            { title: "tour operateur", data: "ID_TOUROPERATEUR", render: function(data, type, row) {
+            { title: "Tour operateur", data: "ID_TOUROPERATEUR", render: function(data, type, row) {
                 return data + " - " + row["LIBELLE_TOUROPERATEUR"];
             }},
             { title: "Action", data: "ID_AVIS", render: function(data, type, row) {
