@@ -16,7 +16,7 @@ class ModelTravelController extends BaseController
     {
         $manager = new ModeleVoyageModel();
         $builder = $manager->builder();
-        $builder->select("modelevoyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.NOM AS NOM_MODELEVOYAGE, modelevoyage.DESCRIPTION AS DESCRIPTION_MODELEVOYAGE, modelevoyage.DESTINATION AS DESTINATION_MODELEVOYAGE, touroperateur.IDTOUROPERATOR as ID_TOUROPERATEUR, touroperateur.LIBELLE as LIBELLE_TOUROPERATEUR, typevoyage.IDTYPEVOYAGE AS ID_TYPEVOYAGE, typevoyage.LIBELLE AS LIBELLE_TYPEVOYAGE, typevoyage.DESCRIPTION AS DESCRIPTION_TYPEVOYAGE");
+        $builder->select("modelevoyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.NOM AS NOM_MODELEVOYAGE, modelevoyage.DESCRIPTION AS DESCRIPTION_MODELEVOYAGE, modelevoyage.DESTINATION AS DESTINATION_MODELEVOYAGE, touroperateur.IDTOUROPERATEUR as ID_TOUROPERATEUR, touroperateur.LIBELLE as LIBELLE_TOUROPERATEUR, typevoyage.IDTYPEVOYAGE AS ID_TYPEVOYAGE, typevoyage.LIBELLE AS LIBELLE_TYPEVOYAGE, typevoyage.DESCRIPTION AS DESCRIPTION_TYPEVOYAGE");
         $builder->join("typevoyage", "modelevoyage.IDTYPEVOYAGE = typevoyage.IDTYPEVOYAGE", "left");
         $builder->join("touroperateur", "modelevoyage.IDTOUROPERATEUR = touroperateur.IDTOUROPERATEUR", "left");
         $models = $builder->get()->getResultArray();
