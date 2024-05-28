@@ -82,7 +82,7 @@
                                                     <option value="">-- Sélectionner un Tour opérateur --</option>
                                                     <?php
                                                         foreach ($toursoperateurs as $touroperateur) {
-                                                            echo "<option value='" . $touroperateur["IDTOUROPERATEUR"] . "' " . ($action == "add" ? "" : ($touroperateur["IDTYPEVOYAGE"] == $data["IDTYPEVOYAGE"] ? "selected" : "")) . ">" . $touroperateur["LIBELLE"] . "</option>";
+                                                            echo "<option value='" . $touroperateur["IDTOUROPERATEUR"] . "' " . ($action == "add" ? "" : ($touroperateur["IDTOUROPERATEUR"] == $data["IDTOUROPERATEUR"] ? "selected" : "")) . ">" . $touroperateur["LIBELLE"] . "</option>";
                                                         }
                                                     ?>
                                                 </select>
