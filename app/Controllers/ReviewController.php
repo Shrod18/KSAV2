@@ -16,11 +16,12 @@ class ReviewController extends BaseController
     {
         $manager = new ReservationModel();
         $builder = $manager->builder();
-        $builder->select("reservation.IDRESERVATION AS ID_RESERVATION, avis.DATEAVIS AS DATE_AVIS, client.IDCLIENT AS ID_CLIENT, client.NOM AS NOM_CLIENT, client.PRENOM AS PRENOM_CLIENT, voyage.IDVOYAGE AS ID_VOYAGE, voyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.NOM AS NOM_MODELEVOYAGE, avis.IDAVIS AS ID_AVIS");
+        $builder->select("reservation.IDRESERVATION AS ID_RESERVATION, avis.DATEAVIS AS DATE_AVIS, client.IDCLIENT AS ID_CLIENT, client.NOM AS NOM_CLIENT, client.PRENOM AS PRENOM_CLIENT, voyage.IDVOYAGE AS ID_VOYAGE, voyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.NOM AS NOM_MODELEVOYAGE, avis.IDAVIS AS ID_AVIS, touroperateur.IDTOUROPERATEUR AS ID_TOUROPERATEUR, touroperateur.LIBELLE AS LIBELLE_TOUROPERATEUR");
         $builder->join("avis", "avis.IDAVIS = reservation.IDAVIS", "right");
         $builder->join("client ", "client.IDCLIENT = reservation.IDCLIENT");
         $builder->join("voyage  ", "voyage.IDVOYAGE = reservation.IDVOYAGE");
         $builder->join("modelevoyage", "modelevoyage.IDMODELEVOYAGE = voyage.IDMODELEVOYAGE");
+        $builder->join("touroperateur", "modelevoyage.IDTOUROPERATEUR = touroperateur.IDTOUROPERATEUR", "left");
         $reviews = $builder->get()->getResultArray();
 
         $manager = new VoyageModel();

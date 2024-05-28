@@ -48,6 +48,9 @@ $(document).ready(function() {
             { title: "Date de départ", data: "DATEDEPART_VOYAGE", render: function(data, type, row) {
                 return dateToFrench(data);
             }},
+            { title: "ID tour operateur", data: "ID_TOUROPERATEUR", render: function(data, type, row) {
+                return data + " - " + row["LIBELLE_TOUROPERATEUR"];
+            }},
             { title: "Description", data: "DESCRIPTION_MODELEVOYAGE" },
             { title: "Action", data: "ID_VOYAGE", render: function(data, type, row) {
                 return btnAction(data);
