@@ -75,12 +75,29 @@
                                 <br>
                                 <div class="slds-col">
                                     <div class="slds-form-element">
+                                        <label class="slds-form-element__label" for="type_model-travel">Tour opérateur<abbr class="slds-required">*</abbr></label>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-select_container">
+                                                <select class="slds-select" name="type_model-travel" id="type_model-travel" required>
+                                                    <option value="">-- Sélectionner un Tour opérateur --</option>
+                                                    <?php
+                                                        foreach ($toursoperateurs as $touroperateur) {
+                                                            echo "<option value='" . $touroperateur["IDTOUROPERATEUR"] . "' " . ($action == "add" ? "" : ($touroperateur["IDTYPEVOYAGE"] == $data["IDTYPEVOYAGE"] ? "selected" : "")) . ">" . $touroperateur["LIBELLE"] . "</option>";
+                                                        }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="slds-col">
+                                    <div class="slds-form-element">
                                         <label class="slds-form-element__label" for="touroperator_model-travel">Tour opérateur<abbr class="slds-required">*</abbr></label>
                                         <div class="slds-form-element__control">
                                             <input type="text" name="touroperator_model-travel" id="touroperator_model-travel" class="slds-input" value="<?= ($action == "add" ? "" : $data["TOUROPERATOR"]) ?>" required>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <br>
                                 <div class="slds-col">
                                     <div class="slds-form-element">

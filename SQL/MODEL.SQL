@@ -1,7 +1,7 @@
-INSERT INTO modelevoyage(IDTYPEVOYAGE, NOM, DESCRIPTION, DESTINATION, TOUROPERATOR) 
-VALUES ("2", "Allemagne", "Au cœur de Berlin - Un hôtel moderne - Des chambres confortables", "Berlin", "SalaünHolidaysTO"),
-("3", "France", "Amateurs d'authenticité, laissez-vous tenter par ce séjour de 5 jours en Alsace.", "Alsace", "HolidaysTO"),
-("1", "Bresil", "La Baie de Rio - Découverte de la flore et de la faune amazoniennes - Le charme colonial de Salvador de Bahia - Brasilia, la ville de tous les possibles.", "Rio", "TOHolidays");
+INSERT INTO modelevoyage(IDTYPEVOYAGE, NOM, DESCRIPTION, DESTINATION, IDTOUROPERATEUR) 
+VALUES ("2", "Allemagne", "Au cœur de Berlin - Un hôtel moderne - Des chambres confortables", "Berlin", 3),
+("3", "France", "Amateurs d'authenticité, laissez-vous tenter par ce séjour de 5 jours en Alsace.", "Alsace", 2),
+("1", "Bresil", "La Baie de Rio - Découverte de la flore et de la faune amazoniennes - Le charme colonial de Salvador de Bahia - Brasilia, la ville de tous les possibles.", "Rio", 1);
 
 INSERT INTO voyage(IDMODELEVOYAGE, DATEDEPART)
 VALUES ("1", "2024-02-23"),

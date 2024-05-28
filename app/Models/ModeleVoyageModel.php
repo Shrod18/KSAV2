@@ -12,7 +12,7 @@ class ModeleVoyageModel extends Model
     protected $returnType = "array";
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ["IDMODELEVOYAGE", "IDTYPEVOYAGE", "NOM", "DESCRIPTION", "DESTINATION", "TOUROPERATOR"];
+    protected $allowedFields = ["IDMODELEVOYAGE", "IDTYPEVOYAGE", "IDTOUROPERATEUR", "NOM", "DESCRIPTION", "DESTINATION"];
 
     /**
      * Permet de récupérer les services d'un voyage

@@ -6,6 +6,7 @@ use App\Models\ModeleVoyageModel;
 use App\Models\PossederModel;
 use App\Models\PrestationModel;
 use App\Models\TypeVoyageModel;
+use App\Models\TourOperateurModel;
 use CodeIgniter\HTTP\RedirectResponse;
 use CodeIgniter\HTTP\ResponseInterface;
 
@@ -15,8 +16,9 @@ class ModelTravelController extends BaseController
     {
         $manager = new ModeleVoyageModel();
         $builder = $manager->builder();
-        $builder->select("modelevoyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.NOM AS NOM_MODELEVOYAGE, modelevoyage.DESCRIPTION AS DESCRIPTION_MODELEVOYAGE, modelevoyage.DESTINATION AS DESTINATION_MODELEVOYAGE, modelevoyage.TOUROPERATOR as TOUROPERATOR_MODELEVOYAGE, typevoyage.IDTYPEVOYAGE AS ID_TYPEVOYAGE, typevoyage.LIBELLE AS LIBELLE_TYPEVOYAGE, typevoyage.DESCRIPTION AS DESCRIPTION_TYPEVOYAGE");
+        $builder->select("modelevoyage.IDMODELEVOYAGE AS ID_MODELEVOYAGE, modelevoyage.NOM AS NOM_MODELEVOYAGE, modelevoyage.DESCRIPTION AS DESCRIPTION_MODELEVOYAGE, modelevoyage.DESTINATION AS DESTINATION_MODELEVOYAGE, touroperateur.IDTOUROPERATOR as ID_TOUROPERATOR, touroperateur.LIBELLE as LIBELLE_TOUROPERATOR, typevoyage.IDTYPEVOYAGE AS ID_TYPEVOYAGE, typevoyage.LIBELLE AS LIBELLE_TYPEVOYAGE, typevoyage.DESCRIPTION AS DESCRIPTION_TYPEVOYAGE");
         $builder->join("typevoyage", "modelevoyage.IDTYPEVOYAGE = typevoyage.IDTYPEVOYAGE", "left");
+        $builder->join("touroperateur", "modelevoyage.IDTOUROPERATEUR = touroperateur.IDTOUROPERATEUR", "left");
         $models = $builder->get()->getResultArray();
 
         return view("pages/travel/model/list", [ 
@@ -38,10 +40,14 @@ class ModelTravelController extends BaseController
         $manager = new PrestationModel();
         $servives = $manager->findAll();
 
+        $manager = new TourOperateurModel();
+        $toursoperateurs = $manager->findAll();
+
         return view("pages/travel/model/action", [ 
             "page" => "modelTravel",
             "action" => "add", 
             "typesVoyages" => $typesVoyages,
+            "toursoperateurs" => $toursoperateurs,
             "services" => $servives
         ]);
     }

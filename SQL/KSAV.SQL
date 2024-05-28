@@ -71,6 +71,19 @@ CREATE TABLE IF NOT EXISTS typevoyage
  ) 
  ENGINE=InnoDB;
 
+
+# -----------------------------------------------------------------------------
+#       TABLE : TOUROPERATEUR
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS touroperateur
+ (
+   IDTOUROPERATEUR INTEGER NOT NULL AUTO_INCREMENT ,
+   LIBELLE VARCHAR(128) NOT NULL
+   , PRIMARY KEY (IDTOUROPERATEUR)
+ ) 
+ ENGINE=InnoDB;
+
 # -----------------------------------------------------------------------------
 #       TABLE : RESERVATION
 # -----------------------------------------------------------------------------
@@ -107,10 +120,10 @@ CREATE TABLE IF NOT EXISTS modelevoyage
  (
    IDMODELEVOYAGE INTEGER NOT NULL AUTO_INCREMENT ,
    IDTYPEVOYAGE INTEGER NOT NULL  ,
+   IDTOUROPERATEUR INTEGER NOT NULL  ,
    NOM CHAR(32) NULL  ,
    DESCRIPTION VARCHAR(255) NULL  ,
-   DESTINATION VARCHAR(128) NOT NULL  ,
-   TOUROPERATOR CHAR(32) NULL  
+   DESTINATION VARCHAR(128) NOT NULL 
    , PRIMARY KEY (IDMODELEVOYAGE) 
  ) 
  ENGINE=InnoDB;
@@ -122,6 +135,9 @@ CREATE TABLE IF NOT EXISTS modelevoyage
 
 CREATE  INDEX I_FK_MODELEVOYAGE_TYPEVOYAGE
      ON modelevoyage (IDTYPEVOYAGE ASC);
+
+CREATE  INDEX I_FK_MODELEVOYAGE_TOUROPERATEUR
+     ON modelevoyage (IDTOUROPERATEUR ASC);
 
 # -----------------------------------------------------------------------------
 #       TABLE : VOYAGE
@@ -220,6 +236,10 @@ ALTER TABLE modelevoyage
       REFERENCES typevoyage (IDTYPEVOYAGE)
       ON DELETE CASCADE;
 
+ALTER TABLE modelevoyage 
+  ADD FOREIGN KEY FK_MODELEVOYAGE_TOUROPERATEUR (IDTOUROPERATEUR)
+      REFERENCES touroperateur (IDTOUROPERATEUR)
+      ON DELETE CASCADE;
 
 ALTER TABLE voyage 
   ADD FOREIGN KEY FK_VOYAGE_MODELEVOYAGE (IDMODELEVOYAGE)
