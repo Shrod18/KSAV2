@@ -10,7 +10,7 @@
 
     <div id="main">
         <div>
-            <h1>KSAV</h1>
+            <h1>KSAV2</h1>
             <p>Application d'enregistrement des retours client et de suivi de la qualité des voyages</p>
         </div>
     </div>
