@@ -66,7 +66,7 @@ class ModelTravelController extends BaseController
             "IDTYPEVOYAGE" => intval($this->request->getPost("type_model-travel")),
             "DESTINATION" => trim($this->request->getPost("destination_model-travel")),
             "DESCRIPTION" => trim($this->request->getPost("description_model-travel")),
-            "TOUROPERATOR" => trim($this->request->getPost("touroperator_model-travel"))
+            "IDTOUROPERATEUR" => trim($this->request->getPost("touroperator_model-travel"))
         ];
 
         $manager->insert($data);
@@ -140,7 +140,7 @@ class ModelTravelController extends BaseController
             "IDTYPEVOYAGE" => intval($this->request->getPost("type_model-travel")),
             "DESTINATION" => trim($this->request->getPost("destination_model-travel")),
             "DESCRIPTION" => trim($this->request->getPost("description_model-travel")),
-            "TOUROPERATOR" => trim($this->request->getPost("touroperator_model-travel"))
+            "IDTOUROPERATEUR" => trim($this->request->getPost("touroperator_model-travel"))
         ];
 
         $manager->update($id, $data);

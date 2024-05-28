@@ -44,7 +44,7 @@ $(document).ready(function() {
             { title: "Nom", data: "NOM_MODELEVOYAGE" },
             { title: "Description", data: "DESCRIPTION_MODELEVOYAGE" },
             { title: "Destination", data: "DESTINATION_MODELEVOYAGE" },
-            // { title: "Tour opérateur", data: "IDTOUROPERATOR" },
+            // { title: "Tour opérateur", data: "ID_TOUROPERATEUR" },
             { title: "ID tour operateur", data: "ID_TOUROPERATEUR", render: function(data, type, row) {
                 return data + " - " + row["LIBELLE_TOUROPERATEUR"];
             }},
