@@ -115,12 +115,16 @@ class ModelTravelController extends BaseController
         $manager = new PrestationModel();
         $services = $manager->findAll();
 
+        $manager = new TourOperateurModel();
+        $toursoperateurs = $manager->findAll();
+
         return view("pages/travel/model/action", [ 
             "page" => "modelTravel",
             "action" => "edit", 
             "id" => $id, 
             "data" => $data, 
             "typesVoyages" => $typesVoyages,
+            "toursoperateurs" => $toursoperateurs,
             "services" => $services
         ]);
     }
